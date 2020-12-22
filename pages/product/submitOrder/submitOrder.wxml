@@ -1,0 +1,103 @@
+<wxs module="unit" src="../../../filter/formatStr.wxs"></wxs>
+<view class="middle">
+	<view style="width: 100%;" wx:if="{{!isChoose}}" bindtap="chooseAddress">
+		<view class="phone" style="font-size: 31rpx;">
+			<text>收货人：{{name}}</text>
+			<text>{{phone}}</text>
+		</view>
+		<view style="font-size: 28rpx;" class="addr">
+			{{province}}-{{city}}-{{district}}，{{address}}
+		</view>
+	</view>
+	<view wx:if="{{isChoose}}" bindtap="chooseAddress" style="display: flex;align-items: center;width: 60%;">
+		<image style="width:40rpx;height: 40rpx;" src="../../../img/add_address.png"></image>
+		<view style="font-size: 37rpx;margin-left: 20rpx;">
+			选择收货地址
+		</view>
+	</view>
+	<view class="right" bindtap="chooseAddress">
+		<image src="../../../img/in_grey.png"></image>
+	</view>
+</view>
+<view class="item" wx:for="{{productObj}}" wx:key="key" wx:for-item="item">
+	<view>
+		<image class="cate-img-left" src="{{item.thumbnailImgUrl}}" alt=""></image>
+	</view>
+	<view class="od-item-right">
+		<view class="cate-name">{{item.productName}}</view>
+		<!--<view class="cate-sub singleSub">{{lastStrs}}</view>-->
+        <view class="cate-sub singleSub">{{item.sub}}</view>
+		<view class="od-item-right-text">
+			<view>
+				<text class="cate-price">￥{{unit.saveSecond(item.price/100)}}</text>
+				<text class="huaPrice">￥{{unit.saveSecond(item.marketPrice/100)}}</text>
+			</view>
+			<text style="font-size: 31rpx;font-weight: 600;margin-top:6rpx;color:#b3b3b3;">x{{item.count}}</text>
+		</view>
+	</view>
+</view>
+<!-- <view class="edit-number">
+	<view style="font-size: 30rpx;">
+		数量
+	</view>
+	<view class="exitNumber-content">
+		<view class="reduce" bindtap="reduce">-</view>
+		<input type="text" disabled="disabled" class="numberInput" bindinput="bindUserNameInput" name="number" value="{{count}}" />
+		<view class="add" bindtap="add">+</view>
+	</view>
+</view> -->
+<!-- 配送方式 -->
+<view class="detail-type">
+	<text>配送方式</text>
+	<text style="color:#b3b3b3;">快递配送</text>
+</view>
+<!-- 备注信息 
+<view class="detail-mark">
+	<view class="markLeft" bindtap="goMark">
+		<text>备注信息</text>
+		<image src="../../../img/in_grey.png" class="rightImg"></image>
+	</view>
+	<view class="markMiddle"></view>
+	<view class="markRight">
+		<text class="faPiao">发票</text>
+		<view class="goPiao" bindtap="goInvoice">
+			<text>开具发票</text>
+			<image src="../../../img/in_grey.png" class="rightImg"></image>
+		</view>
+	</view>
+</view>
+-->
+
+<view class="detail-price detail-coms">
+	<text class="detail-price-right">商品金额</text>
+	<text class="detail-price-left common-color">￥{{productPrice}}</text>
+</view>
+<view class="detail-price detail-post">
+	<text class="detail-price-right">运费</text>
+	<text class="detail-price-left common-color" wx:if="{{cost == '--.--'}}">{{cost}}</text>
+	<text class="detail-price-left common-color" wx:else>￥{{cost}}</text>
+	<!-- <text class="detail-price-left">{{cost == 0.00 ? '--.--' :'￥' + cost}}</text>-->
+</view>
+<!-- 购物须知 -->
+<view class="beforeKnow">
+	<view>
+	    <checkbox-group bindchange="checkboxChange" class="radioBox">
+		   <checkbox value="yes"  class="iknow" /><text>我已阅读并同意</text>
+		</checkbox-group>
+	</view>
+	<view class="mustKnow" bindtap="knowEvent">
+		<text>购物须知</text>
+		<image src="../../../img/question.png" class="question"></image>
+	</view>
+</view>
+<view class="long-word" wx:if="{{conditionKnow}}">
+	由于心意有礼周边网购采用原厂直发的模式，会存在订单产生备货时原厂已包装的现货不足的情况，因此可能出现您所订购的商品缺货，请您谅解。若您的订单有缺货，我们将以短信的形式通知您。为确保您能及时了解您的订单状态，请务必在填写订单收获地址时，在“联系方式”栏中完整填写您的手机号码。
+</view>
+<view class="button-wrap" style="justify-content: space-around;">
+	<view>
+		应付金额：
+		<text style="color: #fc3f3f;">￥</text>
+		<text style="color: #ff541f;font-size:40rpx;">{{totalPrice}}</text>
+	</view>
+	<button style="margin:0" bindtap="submitOrder" class="w-button submitBtn" disabled="{{btnDisable}}">微信支付</button>
+</view>

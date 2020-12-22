@@ -1,0 +1,56 @@
+<wxs module="unit" src="../../filter/formatStr.wxs"></wxs>
+<view class="top-part">
+	<view class="commont-box">
+		<text>商品评价</text>
+		<text>({{totalNum}})</text>
+	</view>
+
+	<view class="btn-box">
+		<text bindtap="changeEvent" class="{{isActive == '0'?'activeClass':''}}" data-status='0'>全部</text>
+		<text bindtap="changeEvent" class="{{isActive == '1'?'activeClass':''}}" data-status='1'>有图</text>
+	</view>
+
+</view>
+<!--切换无评论 -->
+<view wx:if="{{isnoComment}}" class="noCommentClass">
+	<text>暂无评论</text>
+</view>
+<!--切换无评论 -->
+<!-- 评论区 -->
+<block wx:else>
+	<view class="comment-area" wx:for="{{allComentArr}}" wx:key="index">
+		<view class="area-top">
+			<view class="head-nick">
+				<image src="{{item.commentHeadUrl}}" class="user-head"></image>
+				<text class="grayClass">{{unit.manageStr(item.commentUserName)}}</text>
+			</view>
+			<view>
+				<image src="../../img/star_small_red.png" class="starts" wx:for="{{item.score}}" wx:key="index"></image>
+				<image src="../../img/star_small_grey.png" class="starts" wx:for="{{5-(item.score)}}" wx:key="index"></image>
+			</view>
+		</view>
+
+		<view class="area-middle" bindtap="gocommentDetail" data-dactId="{{item.productId}}" data-code="{{item.orderCode}}" data-selfid="{{item.id}}">
+			<text>{{item.comments}}</text>
+			<view class="comimg-box" wx:if="{{item.imgUrls}}">
+				<image src="{{itemName}}" data-src="{{itemName}}" wx:for-item="itemName" data-list="{{unit.strPostarr(item.imgUrls)}}" wx:for="{{unit.strPostarr(item.imgUrls)}}" catchtap="pictureview" wx:key="index"></image>
+			</view>
+		</view>
+
+		<view class="area-bottom">
+			<view class="time-box">
+				<text class="co-time grayClass">{{unit.getimeFormat(item.commentTime)}}</text>
+				<text class="grayClass">{{item.productName}}</text>
+			</view>
+
+			<view class="cot-box">
+				<text class="grayClass">{{item.chopCommonts.length}}</text>
+				<image src="../../img/speak.png"></image>
+			</view>
+		</view>
+	</view>
+</block>
+
+<view class="nomore" wx:if="{{nomoreFlag}}">
+	没有更多了~
+</view>

@@ -1,0 +1,39 @@
+<wxs module="unit" src="../../filter/formatStr.wxs"></wxs>
+<view class="page-swiper">
+    <swiper class="outerSwiper" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" circular="{{circular}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{false}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{swipersArr}}" wx:for-item="item" wx:key="id">
+            <swiper-item>
+                <image src="{{item.url}}" class="slide-image" mode='' />
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<!-- 手机号 -->
+<view class="phoneWrap">
+    <input type="number" value="{{phoneNumber}}" bindinput='input_phone' class="inputPhone" name="phone" placeholder="请输入手机号" placeholder-class="placeholder" placeholder-style="color:#c8c6c6" />
+    <button wx:if="{{!btnFlag}}" bindgetphonenumber="getPhoneNumber" open-type="getPhoneNumber" hover-class="none" class="getPhoneClass">
+        获取号码
+    </button>
+    <button class="getPhoneClass" wx:else bindtap="changePhone">更换号码</button>
+</view>
+<!-- 展示 -->
+<view class="middleBox">
+    <view class="middlePart">
+        <view>
+            <text class="redText">¥<text class="bigPrice">{{unit.saveSecond(detailObj.productPrice/100)}}</text></text>
+            <text class="originPrice">¥{{unit.saveSecond(detailObj.originalPrice/100)}}</text>
+        </view>
+        <view class="productName">{{detailObj.productName}}</view>
+    </view>
+</view>
+<!-- 详情 -->
+<view class="detail-box">
+    <text class="detail-title">商品详情</text>
+    <view class="allDetial">
+       <rich-text nodes="{{detailObj.productDetails}}"></rich-text>
+    </view>
+</view>
+<!-- 购买 -->
+<view class="btnBox">
+    <button class="buyNow" bindtap="nowBuying" disabled="{{isDisabled}}">{{buyText}}</button>
+</view>

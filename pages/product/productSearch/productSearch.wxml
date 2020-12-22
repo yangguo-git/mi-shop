@@ -1,0 +1,91 @@
+<wxs module="unit" src="../../../filter/formatStr.wxs"></wxs>
+<view class="container">
+
+    <view class="m-indexHd" style="height: 102rpx;">
+        <input style="font-size:30rpx" class="j-inputtext searchName" focus="{{autoFocus}}" placeholder="请输入商品名称" bindinput="inputSearch" value="" />
+        <button class="mini-btn" bindtap="search">搜索</button>
+    </view>
+
+    <view class="product-none" wx:if="{{noneProduce}}">
+      暂无商品
+    </view>
+    <view class="product-content" wx:if="{{!noneProduce}}">
+      <view class="zw-proli" wx:for="{{productList}}" wx:key="key" wx:for-item="item" bindtap="productDetile" data-id="{{item.id}}">
+                <view class="zw-proli-img">
+                    <image src="{{item.thumbnailImgUrl}}" alt="" mode="aspectFill"></image>
+                </view>
+                <view class="zw-proli-content">
+                    <view class="zw-proli-tips">{{item.productName}}</view>
+                        <view class="zw-proli-info">
+                        <view class="littleTips">{{item.productSubtitle == null ? '' : item.productSubtitle}}</view>
+                        <view class="price-wrap">
+                            <!-- <text class="price">￥{{item.salePrice/100}}</text> -->
+                            <text class="price">￥{{unit.saveSecond(item.salePrice/100)}}</text>
+                            <!-- <text class="huaXian">￥{{item.marketPrice/100}}</text> -->
+                            <text class="huaXian">￥{{unit.saveSecond(item.marketPrice/100)}}</text>
+                            <image data-id="{{item.id}}" catchtap="addToCart" class="cate-add addImage" style="width: 40rpx;height: 40rpx;" src="../../../img/shop.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+    </view>
+</view>
+<view class="dialog" wx:if='{{isDialog}}'>
+</view>
+<view class="commodity_attr_list" wx:if='{{isDialog}}'>
+    <view class="cancle" bindtap="cancle">×</view>
+    <view bindtap="lookDetail" class="item">
+					<view>
+             <image class="cate-img-left" src="{{chooseImage}}" alt=""></image> 
+					</view>
+					<view class="od-item-right">
+              <view>
+                <!-- <text class="cate-price">￥{{salePrice/100}}</text> -->
+                <text class="cate-price">￥{{unit.saveSecond(salePrice/100)}}</text>
+                <!-- <text class="diaPrice">￥{{productInfo.marketPrice/100}}</text> -->
+                 <text class="diaPrice">￥{{unit.saveSecond(productInfo.marketPrice/100)}}</text>
+              </view>
+              <view class="selectArrText">已选：{{selectArrText}}</view>
+					</view>
+				</view>
+    <!--每组属性-->
+    <view class="attr_box" wx:for="{{attrValueList}}"  wx:for-item="attrValueObj" wx:key="key" wx:for-index="attrIndex"> 
+      <!--属性名-->
+      <view class="attr_name">{{attrValueObj.attrKey}}</view> 
+     
+      <!--属性值-->
+      <view class="attr_value_box"> 
+          <!--每个属性值-->
+          <view class="attr_value {{attrIndex==firstIndex || attrValueObj.attrValueStatus[valueIndex]?(value==attrValueObj.selectedValue?'attr_value_active':''):'attr_value_disabled'}}" bindtap="selectAttrValue" data-status="{{attrValueObj.attrValueStatus[valueIndex]}}"
+          data-value="{{value}}"  data-key="{{attrValueObj.attrKey}}" data-code="{{id}}" data-index="{{attrIndex}}" data-selectedvalue="{{attrValueObj.selectedValue}}" wx:for="{{attrValueObj.attrValues}}" wx:key="key" wx:for-item="value" wx:for-index="valueIndex">{{value}}</view> 
+      </view> 
+    </view> 
+    <view class="edit-number">
+      <view style="font-size: 30rpx;">
+        数量
+      </view>
+      <view class="exitNumber-content">
+        <view class="reduce" bindtap="reduce">-</view>
+        <input type="text" disabled="disabled" class="numberInput" bindinput="bindUserNameInput" name="number" value="{{productNumber}}"/>
+        <view class="add" bindtap="add">+</view>
+      </view>
+    </view>
+	<view class="cate-card">
+		<button class="addShopCard" bindtap="addShopCard" type="warn">确定</button>
+	</view>
+</view> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

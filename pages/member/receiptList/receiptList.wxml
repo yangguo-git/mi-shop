@@ -1,0 +1,58 @@
+<!--pages/member/orderList/orderList.wxml-->
+<view class="container greybg">
+	<view class="m-c-orderContent">
+		<view class="m-c-orderList">
+			<view class="m-c-orderList-left">
+				<text>待收货订单</text>
+			</view>
+		</view>
+	</view>
+	<view class="m-orderList" wx:if="{{isShow}}">
+		<view class="order-item" wx:for="{{orderList}}" wx:key="key" wx:for-item="item" wx:if='{{!item.isQy}}'>
+			<view class="hd">
+				<text class="orderId">订单编号：{{item.orderCode}}</text>
+				<text wx:if="{{item.orderStatus == '101'}}" class="od-status">待付款</text>
+				<text wx:if="{{item.orderStatus == '302'}}" class="od-status">待收货</text>
+				<text wx:if="{{item.orderStatus == '401'}}" class="od-status">处理中</text>
+				<text wx:if="{{item.orderStatus == '305'}}" class="od-status">已完成</text>
+				<text wx:if="{{item.orderStatus == '102'}}" class="od-status">已取消</text>
+			</view>
+			<view class="bd">
+				<view bindtap="lookDetail" class="item" wx:for="{{item.goodsVOList}}" wx:key="key" wx:for-item="goodsVO" data-id="{{item.orderCode}}">
+					<view>
+						<image class="cate-img-left" src="{{goodsVO.thumbnailImgUrl}}" alt=""></image>
+					</view>
+					<view class="od-item-right">
+						<view class="afterText">
+							{{goodsVO.orderStatus == "401" ? '售后处理中' : goodsVO.orderStatus == '402' ? '退款完成' : ''}}
+							<!-- {{goodsVO.orderStatus == "401" ? '售后处理中' : ''}} -->
+						</view>
+						<view class="cate-name">{{goodsVO.productName}}</view>
+						<view class="cate-sub">{{goodsVO.productAttr}}</view>
+						<view class="od-item-right-text">
+							<text class="cate-price">￥{{goodsVO.price}}</text>
+							<text class="cate-count">x{{goodsVO.count}}</text>
+						</view>
+					</view>
+				</view>
+				<view class="totalPrice">
+					<text>订单总金额</text>
+					<text>￥{{item.payPrice}}</text>
+				</view>
+			</view>
+			<view class="ft">
+				<view class="btns">
+						<text class="w-button lookBtn" bindtap="lookDetail" data-id="{{item.orderCode}}">查看详情</text>
+						<text wx:if="{{item.orderStatus == '302'}}" data-id="{{item.orderCode}}" class="w-button" bindtap="sureGet">确认收货</text>
+						<!-- <text wx:if="{{item.orderStatus == '303'}}" data-id="{{item.orderCode}}" class="w-button afterSale" bindtap="afterServer">申请售后</text> -->
+						<!--<text wx:if="{{item.orderStatus == '101'}}" data-id="{{item.orderCode}}" class="w-button payBtn">微信支付</text>
+						<text wx:if="{{item.orderStatus == '302'}}" data-id="{{item.orderCode}}" class="w-button" bindtap="lookLogistics">查看物流</text>
+						<text wx:if="{{item.orderStatus == '302'}}" data-id="{{item.orderCode}}" class="w-button" bindtap="sureGet">确认收货</text>-->
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class='buttom' wx:if="{{!isShow}}">
+      <text>暂无订单~</text>
+    </view> 
+</view>

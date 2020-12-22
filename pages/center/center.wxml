@@ -1,0 +1,198 @@
+<view class="m-ucenter g-row greybg">
+	<view class="m-uc-top">
+		<!--<image class="center-title" src="../../img/title.png"></image>-->
+		<view class="m-profile">
+			<image class="avatar" src="{{avator}}" alt=""></image>
+			<view class="info">
+				<button disabled='{{isDisabled}}' class='pop_btn loginBtn' plain="true" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">{{name}}</button>
+			</view>
+		</view>
+	</view>
+	<view class="m-c-orderContent">
+		<view class="top-wrap">
+			<text class="mine-order">我的订单</text>
+			<view class="all-order" catchtap="nav_xuni_orderList" id="3">
+				<text>查看全部订单</text>
+				<image src="../../img/right.png"></image>
+			</view>
+		</view>
+		<view class="allShows">
+			<!-- <view class="childBox" data-status="2" bindtap="selectOrder">
+				<image src="../../img/order01.png"></image>
+				<text class="bottomtext">待付款</text>
+				<view class="points" wx:if="{{isfukuan}}">
+					<text>{{fukuanNum}}</text>
+				</view>
+				<view class="points-chang" wx:if="{{isfukuanChang}}">
+					<text>{{fukuanNum}}</text>
+				</view>
+			</view>
+			<view class="childBox" data-status="12" bindtap="selectOrder">
+				<image src="../../img/order02.png"></image>
+				<text class="bottomtext">待发货</text>
+				<view class="points" wx:if="{{isfaHuo}}">
+					<text>{{fahuoNum}}</text>
+				</view>
+				<view class="points-chang" wx:if="{{isfaHuoChang}}">
+					<text>{{fahuoNum}}</text>
+				</view>
+			</view>
+			<view class="childBox" data-status="3" bindtap="selectOrder">
+				<image src="../../img/order03.png"></image>
+				<text class="bottomtext">待收货</text>
+				<view class="points" wx:if="{{isshouHuo}}">
+					<text>{{shouhuoNum}}</text>
+				</view>
+				<view class="points-chang" wx:if="{{isshouHuoChang}}">
+					<text>{{shouhuoNum}}</text>
+				</view>
+			</view>
+			<view class="childBox" data-status="16" bindtap="selectOrder">
+				<image src="../../img/order04.png"></image>
+				<text class="bottomtext">已完成</text>
+				<view class="points" wx:if="{{iswanCheng}}">
+					<text>{{wanchengNum}}</text>
+				</view>
+				<view class="points-chang" wx:if="{{iswanChengChang}}">
+					<text>{{wanchengNum}}</text>
+				</view>
+			</view>
+			<view class="childBox" data-status="4" bindtap="selectOrder">
+				<image src="../../img/order05.png"></image>
+				<text class="bottomtext">退款/售后</text>
+				<view class="points specialduan" wx:if="{{isshouHou}}">
+					<text>{{shouhouNum}}</text>
+				</view>
+				<view class="points-chang specialsing" wx:if="{{isshouHouChang}}">
+					<text>{{shouhouNum}}</text>
+				</view>
+			</view> -->
+
+			<!-- 新开 -->
+			<view class="statusWrap" catchtap="nav_xuni_orderList" id="1">
+			  <image src="../../img/t_chenggong.png" > </image>
+			  <text class="statusText" >成功</text>
+			</view>
+
+			<view class="statusWrap" catchtap="nav_xuni_orderList" id="0">
+			  <image src="../../img/t_shibai.png" > </image>
+			  <text class="statusText" >失败</text>
+				
+			</view>
+
+			<view class="statusWrap" catchtap="nav_xuni_orderList" id="2">
+			  <image src="../../img/t_shoulizhong.png" > </image>
+			  <text class="statusText" >受理中</text>
+			</view>
+			<!-- 新结 -->
+
+		</view>
+	</view>
+	<!-- <view class="p_r xuni_order">
+		<view catchtap="nav_xuni_orderList" id="1">
+			成功
+		</view>
+		<view catchtap="nav_xuni_orderList" id="0">
+			失败
+		</view>
+		<view catchtap="nav_xuni_orderList" id="2">
+			受理中
+		</view>
+		<view catchtap="nav_xuni_orderList" id="3" class="xuni_rightTxt">
+			虚拟商品订单 >
+		</view>
+		
+	</view> -->
+	<!--
+	<view class="m-c-orderContent bottom-parts">
+	 <view class="m-c-orderList" data-status="1" bindtap="selectOrder">
+			<view class="m-c-orderList-left">
+				<image src="../../img/quanbudingdan.png"></image>
+				<text>全部订单</text>
+			</view>
+			<view class="m-c-orderList-right">
+				<image src="../../img/right.png"></image>
+			</view>
+		</view> 
+	 <view class="m-c-orderList" data-status="2" bindtap="selectOrder">
+			<view class="m-c-orderList-left">
+				<image src="../../img/daifukuan.png"></image>
+				<text>待付款</text>
+			</view>
+			<view class="m-c-orderList-right">
+				<image src="../../img/right.png"></image>
+			</view>
+		</view> 
+	 <view class="m-c-orderList" data-status="3" bindtap="selectOrder">
+			<view class="m-c-orderList-left">
+				<image src="../../img/daishouhuo.png"></image>
+				<text>待收货</text>
+			</view>
+			<view class="m-c-orderList-right">
+				<image src="../../img/right.png"></image>
+			</view>
+		</view> 
+     <view class="m-c-orderList" data-status="4" bindtap="selectOrder">
+			<view class="m-c-orderList-left">
+				<image src="../../img/tuikuan.png"></image>
+				<text>退款/售后</text>
+			</view>
+			<view class="m-c-orderList-right">
+				<image src="../../img/right.png"></image>
+			</view>
+		</view> 
+
+	 <view class="m-c-orderList" data-status="5" bindtap="selectOrder">
+			<view class="m-c-orderList-left">
+				<image src="../../img/dizhi.png"></image>
+				<text>收货地址</text>
+			</view>
+			<view class="m-c-orderList-right">
+				<image src="../../img/right.png"></image>
+			</view>
+		</view>
+	 </view>-->
+	<view class="m-c-orderContent bottom-parts">
+		<!-- 优惠券 -->
+		<view class="m-c-orderList secondClass" data-status="8" bindtap="selectOrder">
+			<view class="m-c-orderList-left">
+				<image src="../../img/list01.png"></image>
+				<text>优惠券</text>
+			</view>
+			<view class="m-c-orderList-right">
+				<image src="../../img/in_black.png"></image>
+			</view>
+		</view>
+		<!-- 收藏 -->
+		<!-- <view class="m-c-orderList secondClass" data-status="9" bindtap="selectOrder">
+			<view class="m-c-orderList-left">
+				<image src="../../img/list02.png"></image>
+				<text>商品收藏</text>
+			</view>
+			<view class="m-c-orderList-right">
+				<image src="../../img/in_black.png"></image>
+			</view>
+		</view> -->
+		<!-- 地址 -->
+		<!-- <view class="m-c-orderList secondClass" data-status="5" bindtap="selectOrder">
+			<view class="m-c-orderList-left">
+				<image src="../../img/list03.png"></image>
+				<text>收货地址</text>
+			</view>
+			<view class="m-c-orderList-right">
+				<image src="../../img/in_black.png"></image>
+			</view>
+		</view> -->
+		<!-- 客服 -->
+		<!-- <view class="m-c-orderList secondClass lastList" data-status="10" bindtap="selectOrder"> -->
+		<view class="m-c-orderList secondClass lastList" data-status="10" bindtap="goCustomer">
+			<view class="m-c-orderList-left">
+				<image src="../../img/list04.png"></image>
+				<text>联系客服</text>
+			</view>
+			<view class="m-c-orderList-right">
+				<image src="../../img/in_black.png"></image>
+			</view>
+		</view>
+	</view>
+</view>

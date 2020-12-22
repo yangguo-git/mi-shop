@@ -1,0 +1,101 @@
+<wxs module="unit" src="../../filter/formatStr.wxs"></wxs>
+<view class="outerBox">
+<view class="container whitebg">
+    <view class="m-indexHd" style="height: 102rpx;background-color: #f0f0f8;">
+        <view class="m-hd g-row">
+            <view class="m-indextop">
+                <view class="top-line">
+                    <view class="m-searchTop">
+                        <view class="zw-search-link" bindtap="inputSearch">
+                            <image class="cate-search-img" src="../../img/index-cha.png"></image>
+                            <text style="font-size:30rpx" class="j-inputtext lophone">请输入商品名称</text>
+                            <!--<input style="font-size:30rpx" class="j-inputtext lophone"  placeholder="请输入商品名称" bindtap="inputSearch" value="" />-->
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="g-row categoryWrap" wx:if="{{isShow}}">
+        <view class="cate-left">
+            <view class="list">
+                <view wx:for="{{categoryList}}" wx:key="key" wx:for-item="item" class="item {{viewId == item.id ? 'active':''}}" bindtap="select" data-index ='{{item.id}}'>
+                    <text class="txt newTxt">{{item.categoryName}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="cate-right">
+            <view class="cate-bn"></view>
+            <view class="cate-wrap" wx:if="{{productList.length>0}}">
+                <view class="cate-list" wx:for="{{productList}}" wx:key="key" wx:for-item="outitem">
+                    <text class="eveTitle">{{outitem.categoryName}}</text>
+                    <view class="item" wx:for="{{outitem.productList}}" wx:key="key" wx:for-item="item" data-id="{{item.id}}" bindtap="productDetile">
+                    <view>
+                        <image class="cate-img-left" src="{{item.thumbnailImgUrl}}" alt="" mode="aspectFill"></image> 
+                    </view>
+                    <view>
+                        <view class="cate-name singleName">{{item.productName}}</view>
+                        <view class="cate-sub">{{item.productSubtitle == null ? '' : item.productSubtitle}}</view>
+                        <view class="lastPart">
+                            <!-- <text class="cate-price">￥{{item.salePrice/100}}</text> -->
+                            <text class="cate-price">￥{{unit.saveSecond(item.salePrice/100)}}</text>
+                            <!-- <text class="huaxian-price">￥{{item.marketPrice/100}}</text> -->
+                            <text class="huaxian-price">￥{{unit.saveSecond(item.marketPrice/100)}}</text>
+                            <image data-id="{{item.id}}" catchtap="addToCart" class="cate-add" src="../../img/shop.png"></image>
+                        </view>
+                    </view>
+                    </view>
+                </view>
+            </view>
+            <view class="noproduct" wx:else>
+                该分类暂无相关商品
+            </view>
+        </view>
+    </view>
+</view>
+</view>
+<view class="dialog" wx:if='{{isDialog}}'>
+</view>
+<view class="commodity_attr_list" wx:if='{{isDialog}}'>
+    <view class="cancle" bindtap="cancle">×</view>
+    <view bindtap="lookDetail" class="item">
+					<view>
+             <image class="cate-img-left" src="{{chooseImage}}" alt=""></image> 
+					</view>
+					<view class="od-item-right">
+              <view>
+                <!-- <text class="cate-price">￥{{salePrice/100}}</text> -->
+                <text class="cate-price">￥{{unit.saveSecond(salePrice/100)}}</text>
+                <!-- <text class="diaPrice">￥{{productInfo.marketPrice/100}}</text> -->
+                 <text class="diaPrice">￥{{unit.saveSecond(productInfo.marketPrice/100)}}</text>
+              </view>
+              <view class="selectArrText">已选：{{selectArrText}}</view>
+					</view>
+				</view>
+    <!--每组属性-->
+    <view class="attr_box" wx:for="{{attrValueList}}"  wx:for-item="attrValueObj" wx:key="key" wx:for-index="attrIndex"> 
+      <!--属性名-->
+      <view class="attr_name">{{attrValueObj.attrKey}}</view> 
+     
+      <!--属性值-->
+      <view class="attr_value_box"> 
+          <!--每个属性值-->
+          <view class="attr_value {{attrIndex==firstIndex || attrValueObj.attrValueStatus[valueIndex]?(value==attrValueObj.selectedValue?'attr_value_active':''):'attr_value_disabled'}}" bindtap="selectAttrValue" data-status="{{attrValueObj.attrValueStatus[valueIndex]}}"
+          data-value="{{value}}"  data-key="{{attrValueObj.attrKey}}" data-code="{{id}}" data-index="{{attrIndex}}" data-selectedvalue="{{attrValueObj.selectedValue}}" wx:for="{{attrValueObj.attrValues}}" wx:key="key" wx:for-item="value" wx:for-index="valueIndex">{{value}}</view> 
+      </view> 
+    </view> 
+    <view class="edit-number">
+      <view style="font-size: 30rpx;">
+        数量
+      </view>
+      <view class="exitNumber-content">
+        <view class="reduce" bindtap="reduce">-</view>
+        <input type="text" disabled="disabled" class="numberInput" bindinput="bindUserNameInput" name="number" value="{{productNumber}}"/>
+        <view class="add" bindtap="add">+</view>
+      </view>
+    </view>
+	<view class="cate-card">
+		<button class="addShopCard" bindtap="addShopCard" type="warn">确定</button>
+	</view>
+</view> 

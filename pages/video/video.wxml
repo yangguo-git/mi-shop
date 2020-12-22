@@ -1,0 +1,13 @@
+<view style="padding:0" data-e="{{e}}" bindtouchstart="start" bindtouchend="end">
+  <swiper wx:if="{{!videoSrc}}" current="{{current}}" class="swiperClass"  circular="{{true}}" indicator-dots="{{true}}" autoplay="{{autoplay}}" data-e="{{e}}" bindchange="changeCurrent">
+    <view wx:for="{{info}}" wx:key="this">
+      <swiper-item>
+       <image src="{{item.img}}" mode='aspectFill' class="firstImg"/>
+       <image wx:if="{{item.type == 'video'}}" src='../../img/play1.png' 
+       bindtap="play" data-item="{{item}}" class="secondImg"/>
+      </swiper-item>
+    </view>
+  </swiper>
+  <!-- 视频的autoplay和controls属性要加上，不加有的安卓手机在缓冲的时候没有loading效果-->
+  <video enable-progress-gesture="{{false}}" custom-catch="{{false}}" wx:if="{{videoSrc}}" class="videoClass" autoplay="{{true}}" src="{{videoSrc}}" controls="controls" bindpause="handleStop" ></video>
+</view>

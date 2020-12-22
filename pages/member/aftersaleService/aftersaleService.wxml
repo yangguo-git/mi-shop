@@ -1,0 +1,23 @@
+<view class="conts">
+	<textarea class="areas" placeholder='请输入申请原因' maxlength="150" bindinput="inputs">
+        
+    </textarea>
+    <view class="after-content">
+            <view class="after-content-left">
+              <view class="after-content-left-img">
+                <image class="xiangji" wx:for="{{imgUrl}}" bindtap="previewimgs" wx:for-item="item" wx:key="key" src="{{item}}"></image>
+                <image class="xiangji" src="../../../img/xiangji.png" bindtap="uploadFile"></image>
+              </view>
+              <view class="after-content-left-text">
+                <view style="font-size: 25rpx;">上传凭证</view>
+                <view style="font-size: 25rpx;">(最多三张)</view>
+              </view> 
+            </view>
+            <view class="after-content-right">
+              <text class="currentWordNumber">{{currentWordNumber}}/{{max}}</text>
+            </view>
+        </view>
+        <view class="button-wrap">
+            <button bindtap="submit" class="w-button">提交申请</button>
+        </view>
+</view>

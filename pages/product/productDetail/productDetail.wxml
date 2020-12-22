@@ -1,0 +1,252 @@
+<wxs module="unit" src="../../../filter/formatStr.wxs"></wxs>
+<!--商品轮播 start-->
+<view class="zw-banner">
+	<view class="zw-background">
+		<view style="padding:0;height:100%;" data-e="{{e}}" bindtouchstart="start" bindtouchend="end">
+			<swiper wx:if="{{!videoSrc}}" current="{{current}}" style="width:100%;height:100%;" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" circular="{{true}}" indicator-dots="{{true}}" autoplay="{{autoplay}}" data-e="{{e}}" bindchange="changeCurrent">
+				<view wx:for="{{info}}" wx:key="this">
+					<swiper-item>
+						<image src="{{item.img}}" style="width:100%;height:100%" mode='' />
+						<image style="width:100rpx;height:100rpx;position:absolute;top:200rpx;left:320rpx" wx:if="{{item.type == 'video'}}" src='../../../img/play1.png' bindtap="play" data-item="{{item}}" />
+					</swiper-item>
+				</view>
+			</swiper>
+			<!-- 视频的autoplay和controls属性要加上，不加有的安卓手机在缓冲的时候没有loading效果，我的手机是小米6x就出现了 -->
+			<video enable-progress-gesture="{{false}}" custom-catch="{{false}}" wx:if="{{videoSrc}}" style="width:100%;height:520rpx;position:absolute;top:0" autoplay="{{true}}" src="{{videoSrc}}" controls="controls" bindpause="handleStop"></video>
+		</view>
+
+	</view>
+</view>
+<!--商品轮播 end-->
+<view class="info-price clear priceWraps">
+	<view class='price'>￥{{unit.saveSecond(productInfo.salePrice/100)}} </view>
+	<view class="xianPrice">￥{{unit.saveSecond(productInfo.marketPrice/100)}} </view>
+</view>
+<view class="info-title">
+	<text>{{productInfo.productName}}</text>
+</view>
+<view class="info-sub">
+	<text>{{productInfo.productSubtitle}}</text>
+</view>
+<view style="background: #fff; padding:0 30rpx;color: #999999;padding-bottom: 30rpx;">
+	<view class="clearfix flex grey gridXt">
+		<view class="sub">销量：<text style="color:black;">{{productInfo.sales}}</text></view>
+		<view class="sub shareBox" bindtap="shareEvent">
+			<image src="../../../img/shares.png"></image>
+		</view>
+	</view>
+</view>
+<view class="chuXiao">
+	<text class="explain-child">促销</text>
+	<block wx:if="{{promotArr.length>0 }}">
+		<text class="explain-red">包邮</text>
+		<text class="explain-child">{{promotArr[0]}}</text>
+	</block>
+	<block wx:else>
+		<text>无</text>
+	</block>
+</view>
+<view class="product-check" bindtap="imgSubmit" data-id="{{productInfo.id}}">
+	<view class="product-check-left">
+		<text> 已选 <text class="choseText">{{skuText}}<text class="numMagin" wx:if="{{!isBegin}}">x{{productNumber}}</text><text wx:if="{{isBegin}}"></text> </text></text>
+	</view>
+	<image class="product-point" src="../../../img/in_grey.png"></image>
+</view>
+<view class="explain aboutExplain">
+	<view class="shuoMing">说明</view>
+	<!--是否展示48小时发货-->
+	<view class="littleTips" wx:if="{{productInfo.showDeliveryTime == 1 || productInfo.showDeliveryTime == 2}}">
+		<image src="../../../img/marks.png" class="imgset"></image>
+		<text class="textSet" wx:if="{{productInfo.showDeliveryTime == 1}}">全场48小时发货</text>
+		<text class="textSet" wx:else>全场72小时发货</text>
+	</view>
+	<!--是否展示七天退货-->
+	<view class="littleTips" wx:if="{{productInfo.showSafeguard == 1}}">
+		<image src="../../../img/marks.png" class="imgset"></image>
+		<text class="textSet">7天无理由退货</text>
+	</view>
+	<!--是否假一赔十-->
+	<view class="littleTips" wx:if="{{productInfo.showCompensate == 1}}">
+		<image src="../../../img/marks.png" class="imgset"></image>
+		<text class="textSet">假一赔十</text>
+	</view>
+
+</view>
+
+<!-- 商品评价 -->
+<view class="comment-wrap">
+	<view class="looktop">
+		<view class="comment-left">
+			<text>商品评价</text>
+			<text>({{commentNum}})</text>
+		</view>
+
+		<view class="comment-right" bindtap="lookAll" wx:if="{{commentNum>0}}">
+			<text>查看全部</text>
+			<image src="../../../img/in_grey.png"></image>
+		</view>
+        <!--无评价-->
+		<view class="comment-right" wx:else>
+			<text>暂无评价</text>
+		</view>
+	</view>
+
+	<view class="lookMiddle" wx:if="{{commentNum>0}}">
+		<view class="area-top">
+			<view class="head-nick">
+				<image src="{{firstComment.commentHeadUrl}}" class="user-head"></image>
+				<text>{{unit.manageStr(firstComment.commentUserName)}}</text>
+			</view>
+			<view>
+				<image src="../../../img/star_small_red.png" class="starts" wx:for="{{lightStar}}" wx:key="index"></image>
+                <image src="../../../img/star_small_grey.png" class="starts" wx:for="{{grayStar}}" wx:key="index"></image>
+			</view>
+		</view>
+
+		<view class="area-middle">
+			<text>{{firstComment.comments}}</text>
+			<view  class="comimg-box" wx:if="{{commentImgUrls.length > 0}}">
+			   <image src="{{item}}"  data-src="{{item}}"  data-list="{{commentImgUrls}}" wx:for="{{commentImgUrls}}" bindtap="pictureview" wx:key="index" ></image>
+		    </view>
+		</view>
+
+		<view class="area-bottom">
+			<view class="time-box">
+				<text class="co-time">{{unit.getimeFormat(firstComment.commentTime)}}</text>
+				<text style="color: #999999;">{{firstComment.productName}}</text>
+			</view>
+			<!-- <view class="cot-box">
+				<text>0</text>
+				<image src="../../img/coment.png"></image>
+			</view> -->
+		</view>
+
+	</view>
+
+</view>
+<!-- 商品评价 -->
+<!--商品详情-->
+<!-- rich-text.wxml -->
+<view class="product-detail">
+	<rich-text nodes="{{productInfo.parameter}}"></rich-text>
+</view>
+
+<!--底部浮动 start-->
+<!-- <view class="button-wrap">
+    <button bindtap="submit" data-id="{{productInfo.id}}" class="w-button nowBtn">立即购买</button>
+  </view> -->
+<!-- 新修改添加开始 -->
+<view class="button-wrap">
+	<block wx:if="{{isShowbtn == 1}}">
+		<view class="part-left">
+			<view class="left-item"  bindtap="goHome">
+				<image src="../../../img/icon_index.png"></image>
+				<text>首页</text>
+			</view>
+			<view class="left-item" bindtap="goCustomer">
+				<image src="../../../img/icon_service.png"></image>
+				<text>客服</text>
+			</view>
+			<view class="left-item shoppingCar" bindtap="goShopcar">
+				<image src="../../../img/icon_shop.png"></image>
+				<text>购物车</text>
+				<!--<text class="choseNum">8</text>-->
+			</view>
+		</view>
+		<view class="part-right">
+			<view class="common-css addshop" bindtap="addshop">加入购物车</view>
+			<view class="common-css nowbuy" bindtap="submit">立即购买</view>
+		</view>
+	</block>
+	<!-- 点击按钮时 -->
+	<block wx:elif="{{isShowbtn == 2}}">
+		<view class="outter-box">
+			<view class="sureBtn" bindtap="sureClick">确定</view>
+		</view>
+	</block>
+
+	<block wx:else>
+		<view class="imgbtn-wrap">
+			<view class="common-css addshop" data-id="4" bindtap="mainbuy">加入购物车</view>
+			<view class="common-css nowbuy" data-id="6" bindtap="mainbuy">立即购买</view>
+		</view>
+	</block>
+
+</view>
+<!-- 新修改添加结束 -->
+<view class="dialog" wx:if='{{isDialog}}'>
+</view>
+<view class="commodity_attr_list" wx:if='{{isDialog}}'>
+	<view class="cancle" bindtap="cancle">×</view>
+	<view bindtap="lookDetail" class="item detail-wrap">
+		<view>
+			<image class="cate-img-left" src="{{chooseImage}}" alt=""></image>
+		</view>
+		<view class="od-item-right">
+			<view>
+				<!-- <text class="cate-price">￥{{salePrice/100}}</text> -->
+				<text class="cate-price">￥{{unit.saveSecond(salePrice/100)}}</text>
+				<!-- <text class="diaPrice">￥{{productInfo.marketPrice/100}}</text> -->
+				<text class="diaPrice">￥{{unit.saveSecond(productInfo.marketPrice/100)}}</text>
+			</view>
+			<view style="margin-top: 20rpx;">已选：{{selectArrText}}</view>
+		</view>
+	</view>
+	<!--每组属性-->
+	<view class="attr_box" wx:for="{{attrValueList}}" wx:for-item="attrValueObj" wx:key="key" wx:for-index="attrIndex">
+		<!--属性名-->
+		<view class="attr_name">{{attrValueObj.attrKey}}</view>
+
+		<!--属性值-->
+		<view class="attr_value_box">
+			<!--每个属性值-->
+			<view class="attr_value {{attrIndex==firstIndex || attrValueObj.attrValueStatus[valueIndex]?(value==attrValueObj.selectedValue?'attr_value_active':''):'attr_value_disabled'}}" bindtap="selectAttrValue" data-status="{{attrValueObj.attrValueStatus[valueIndex]}}" data-value="{{value}}" data-key="{{attrValueObj.attrKey}}" data-code="{{id}}" data-index="{{attrIndex}}" data-selectedvalue="{{attrValueObj.selectedValue}}" wx:for="{{attrValueObj.attrValues}}" wx:key="key" wx:for-item="value" wx:for-index="valueIndex">{{value}}</view>
+		</view>
+	</view>
+	<view class="edit-number">
+		<view style="font-size: 30rpx;">
+			数量
+		</view>
+		<view class="exitNumber-content">
+			<view class="reduce anotherClass {{productNumber==1?'grayColor':''}}" bindtap="reduce">-</view>
+			<input type="text" disabled="disabled" class="numberInput newClass" bindinput="bindUserNameInput" name="number" value="{{productNumber}}" />
+			<view class="add anotherClass" bindtap="add">+</view>
+		</view>
+	</view>
+</view>
+<!-- 分享区域开始 -->
+<view class="shareContainer" wx:if="{{isShare}}">
+	<view class="shareTop">
+		<text class="shareText">分享</text>
+		<image src="../../../img/closee.png" bindtap="closeEvent" class="closeShare"></image>
+	</view>
+
+	<view class="shareBottom">
+		<view class="shareFriend">
+			<image src="../../../img/wchet.png"></image>
+			<button open-type="share" class="diyshareBtn">111</button>
+			<text>分享给好友</text>
+		</view>
+		<view class="shareBao" bindtap="becomePicture">
+			<image src="../../../img/friend.png"></image>
+			<text>生成分享海报</text>
+		</view>
+	</view>
+</view>
+<view class="dialogShare" wx:if='{{isDialogShare}}'>
+</view>
+<!--  分享区域结束-->
+
+<!--  海报区开始  备用-->
+<view class="haiBaoBox" wx:if="{{isHaibao}}" catchtouchmove="noneEnoughPeople">
+	<image src="../../../img/closee.png" bindtap="closeHaiBao" class="closeHaiBao"></image>
+	<view class="saveContainer">
+		<button bindtap='saveImg' hover-class="none" disabled="{{isDisabled}}">保存图片</button>
+	</view>
+	<view class='share'>
+		<canvas canvas-id="shareCanvas" catchtouchmove="noneEnoughPeople" disable-scroll="true" style="width:{{adaption*320+'px'}};height:{{adaption*420+'px'}};"></canvas>
+	</view>
+</view>
+<view class="dialogShare" wx:if='{{isconticeShow}}' catchtouchmove="noneEnoughPeople">
+</view>
+<!--  海报区结束 备用-->

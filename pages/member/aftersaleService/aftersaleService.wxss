@@ -1,0 +1,88 @@
+/* pages/member/aftersaleService/aftersaleService.wxss */
+.conts{
+  width: 95%;
+  height: 500rpx;
+  border: 1rpx soldi red;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  background-color: #fff;
+  padding-top: 30rpx;
+  position: relative;
+  padding-bottom: 60rpx;
+}
+.areas{
+  height: 100%;
+  font-size: 30rpx;
+  text-indent: 28rpx;
+  border: 1rpx solid gainsboro;
+  padding-top: 30rpx;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 92%;
+  border-radius: 15rpx;  
+}
+.currentWordNumber{
+  font-size: 28rpx;
+  color: #b9b9b9;
+  position: absolute;
+  right: -9rpx;
+  bottom: -8rpx;
+}
+.after-content{
+  display: flex;
+  justify-content: space-between;
+  width: 86%;
+  position: absolute;
+  bottom: 45rpx;
+  left: 7%;  
+  z-index: 1024;
+}
+.after-content-left-img image{
+  width: 90rpx;
+  height: 70rpx;
+  margin-right: 10rpx;
+}
+.after-content-left-img{
+  border: 1px dashed #f5d3d3;
+  padding: 20rpx;
+  margin-right: 20rpx;
+}
+.after-content-left{
+  display: flex;
+  align-items: center;
+}
+.after-content-left-text{
+  color: #b9b9b9;
+}
+.after-content-right{
+  position: relative;
+}
+.button-wrap {
+  height: 140rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+.w-button {
+  background: #f4f4f4;
+  color: #fff;
+  border-radius: 2px;
+  z-index: 4;
+  padding:0;
+  background: linear-gradient(225deg,#25cfa1,#27d98c);
+  border-radius: 50rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 27rpx;
+  font-weight: 100;
+  width: 90%!important;
+}
+
+
+
+

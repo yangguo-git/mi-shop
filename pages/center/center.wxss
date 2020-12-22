@@ -1,0 +1,251 @@
+page{
+  background-color: #f0f0f8;
+}
+.m-uc-top {
+  height: 200rpx;
+  background-size: 100%;
+  position: relative;
+}
+.p_r{
+  display: flex;
+  flex-direction: row;
+}
+.xuni_order{
+  background-color: white;
+  border-radius: 10rpx;
+  width: 96%;
+  margin-left:2% ;
+  padding: 20rpx 0 20rpx;
+  text-align: center;
+  color: #999999;
+
+  font-size: 32rpx;
+}
+.xuni_order view {
+  flex: 1;
+}
+.xuni_rightTxt{
+  min-width: 300rpx;
+}
+.m-profile {
+  display: flex;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  align-items: center;
+  left: 20rpx;
+}
+.center-title{
+  width:100%;
+  height:100%
+}
+.m-profile .avatar {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  margin-right: 15rpx;
+}
+.m-uc-wrap {
+  background-color: #fff;
+}
+
+.m-uc-wraptit {
+  height: 105rpx;
+  line-height: 105rpx;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding-left: 30rpx;
+  margin-bottom: 15rpx;
+}
+.m-c-orderList{
+  display: flex;
+  justify-content: space-between;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 30rpx;  
+}
+.m-c-orderList-left{
+  display: flex;
+  align-items: center;
+}
+.m-c-orderList-left image{
+  width: 40rpx;
+  height: 39rpx;
+  margin-right: 20rpx;  
+  margin-top: 4rpx;
+}
+.m-c-orderList-right image{
+  width: 19rpx;
+  height: 25rpx;
+}
+.m-c-orderContent{
+  background-color: #fff;
+  font-size: 30rpx;
+  margin-bottom: 15rpx;
+  margin-right: 15rpx;
+  margin-left: 15rpx;
+  border-radius:15rpx;
+}
+.city{
+  padding-left: 0;
+}
+.m-profile .nickname {
+  font-size: 37rpx;
+  color: #fff;
+}
+
+.greybg {
+  /* background-color: #f4f4f4; */
+  min-height:100%;
+}
+.loginBtn{
+  border: none !important;
+  width: 210rpx !important;
+  text-align: left;
+  padding-left: 0px;
+  font-size: 40rpx;
+}
+button[disabled]{
+  background-color: rgba(215, 137, 77, 0) !important;
+  color: black !important;
+}
+.m-c-orderList-right{
+  display: flex;
+  align-items: center;
+}
+/* 新增优化 */
+.allShows{
+   display: flex;
+   justify-content: space-around;
+   margin-top: 25rpx;
+   padding-bottom: 25rpx;
+}
+.childBox image{
+   width: 50rpx;
+   height: 40rpx;
+}
+.childBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30rpx;
+  position: relative;
+}
+.top-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #dddddd;
+  font-size: 30rpx;
+}
+.all-order{
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+  color: #999999;
+  padding-right: 10rpx;
+}
+.all-order image{
+   width: 40rpx;
+   height: 40rpx;
+}
+.mine-order{
+  flex: 1;
+  padding-left: 30rpx;
+  color: black;
+  font-size: 32rpx;
+  font-weight:bold;
+}
+.bottom-parts{
+  margin-top: 30rpx;
+}
+.bottomtext{
+  margin-top: 15rpx;
+  color: #999999;
+  font-size: 28rpx;
+}
+.secondClass{
+  padding-left: 0px;
+  margin-left: 30rpx;
+  border-bottom: 1px solid #dddddd;
+  align-items: center;
+}
+.lastList{
+  border-bottom: none;
+}
+/* 圆点开始 */
+.points{
+  position: absolute;
+  right: 9rpx;
+  top: -10rpx;
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+  width: 27rpx;
+  height: 27rpx;
+  font-size: 21rpx;
+  color: #ff541f;
+  z-index: 2;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.points text{
+  margin-top: -3rpx;
+}
+.points-chang{
+  position: absolute;
+  right: -8rpx;
+  top: -10rpx;
+  border: 1px solid #dddddd;
+  font-size: 21rpx;
+  color: #ff541f;
+  z-index: 2;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 27rpx;
+  /* line-height: 27rpx; */
+  text-align: center;
+  width: 40rpx;
+  border-radius: 16rpx;
+}
+.points-chang text{
+  margin-top: -3rpx;
+}
+.specialsing{
+  right: 4rpx;
+}
+.specialduan{
+  right: 17rpx;
+}
+/* 圆点结束 */
+
+/* 新加 */
+.statusWrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.statusWrap image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.statusText{
+  font-size: 28rpx;
+  margin-top: 8rpx;
+  color: black;
+}
+
+
+
+
+
+
+

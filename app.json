@@ -1,0 +1,73 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/interests_index/interests_index",
+    "pages/logs/logs",
+    "pages/center/center",
+    "pages/member/logisticsDetails/logisticsDetails",
+    "pages/category/category",
+    "pages/product/productSearch/productSearch",
+    "pages/member/xuni_orderList/xuni_orderList",
+    "pages/member/unpaidList/unpaidList",
+    "pages/member/receiptList/receiptList",
+    "pages/member/aftersaleList/aftersaleList",
+    "pages/member/addressManage/addressManage",
+    "pages/member/editAddress/editAddress",
+    "pages/member/saveAddress/saveAddress",
+    "pages/member/orderList/orderList",
+    "pages/member/detailOrider/detailOrider",
+    "pages/member/aftersaleService/aftersaleService",
+    "pages/product/submitOrder/submitOrder",
+    "pages/product/productDetail/productDetail",
+    "pages/video/video",
+    "pages/shareCard/shareCard",
+    "pages/mark/mark",
+    "pages/invoice/invoice",
+    "pages/member/waitSend/waitSend",
+    "pages/member/finishOrder/finishOrder",
+    "pages/member/refundQuestion/refundQuestion",
+    "pages/member/commonProblem/commonProblem",
+    "pages/shopCar/shopCar",
+    "pages/addComments/addComments",
+    "pages/commentsList/commentsList",
+    "pages/commentsDetail/commentsDetail",
+    "pages/link/link",
+    "pages/manyComment/manyComment",
+    "pages/seckill/seckill",
+    "pages/seckillDetail/seckillDetail",
+    "pages/discount/discount",
+    "pages/discountDetail/discountDetail",
+    "pages/webviews/webviews"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "心意有礼周边",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#333333",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "selectedIconPath": "img/01_index_xuan.png",
+        "iconPath": "img/01_index_chu.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "selectedIconPath": "img/04_user_xuan.png",
+        "iconPath": "img/04_user_chu.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
+  },
+  "sitemapLocation": "sitemap.json"
+}

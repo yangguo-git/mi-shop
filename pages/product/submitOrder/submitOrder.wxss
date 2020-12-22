@@ -1,0 +1,180 @@
+@import '../../member/detailOrider/detailOrider.wxss';
+page{
+  background-color: #f0f0f8;
+  padding-bottom: 115rpx;
+}
+.numberInput{
+  width: 70rpx;
+  font-size: 34rpx;
+  text-align: center;
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
+}
+.edit-number{
+  display: flex;
+  justify-content: space-between;
+  height: 100rpx;
+  align-items: center; 
+  padding: 0 30rpx;
+  background-color: #fff;
+  margin-top: 10rpx; 
+}
+.reduce{
+  font-size: 55rpx;
+  height: 30rpx;
+  line-height: 24rpx;
+  width: 36rpx;
+  text-align: center;
+}
+.add{
+  font-size: 40rpx;
+  height: 30rpx;
+  line-height: 24rpx;
+  width: 36rpx;
+  text-align: center;
+}
+.exitNumber-content{
+  display: flex;
+  align-items: center;
+  border: 1px solid #ececec;
+  height: 46rpx;
+  border-radius: 50px;
+  width: 190rpx;
+  text-align: center;
+  justify-content: space-around;  
+}
+.right image{
+  width: 25rpx;
+  height: 36rpx;
+  margin-left: 10rpx;
+}
+/* 单独设置样式 */
+.singleSub{
+  font-size: 27rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.huaPrice{
+  color: #a6a6a6;
+  font-size: 26rpx;
+  text-decoration: line-through;
+  margin-left: 10rpx;
+}
+/* 配送方式 */
+.detail-type{
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+}
+.detail-post{
+  margin-top: 0px;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.beforeKnow{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rpx;
+  background-color: #fff;
+  padding: 0 30rpx;
+  height: 85rpx;
+  line-height: 85rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  align-items: center;
+}
+.radioBox{
+  display: flex;
+  align-items: center;
+}
+.iknow{
+   transform: scale(0.65);
+}
+.detail-coms{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+/* 备注信息 */
+.detail-mark{
+  display: flex;
+  justify-content: space-between;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+  padding: 0 15rpx 0 30rpx;
+  margin-top: 10rpx;
+}
+.markLeft{
+  display: flex;
+  align-items: center;
+  width: 200rpx;
+  justify-content: space-between;
+  margin-right: 10rpx;
+}
+.markRight{
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+  margin-left: 10rpx;
+}
+.rightImg{
+  width: 18rpx;
+  height: 25rpx;
+}
+.goPiao{
+  display: flex;
+  align-items: center;
+}
+.markMiddle{
+  /* width: 0.5rpx; */
+  background-color: #f6f6f6;
+  height: 25px;
+  align-self: center;
+  border-left: 1px solid #cccccc;
+  margin-left: 10rpx;
+  /* background-color: #cccccc; */
+}
+.faPiao{
+  padding-left: 12rpx;
+}
+.mustKnow{
+  color: #0c67ee;
+  display: flex;
+  align-items: center;
+}
+.common-color{
+  color: #000000;
+}
+.radioBox text{
+  padding-top: 4rpx;
+}
+.long-word{
+  font-size: 28rpx;
+  background-color: #fff;
+  padding: 0px 20rpx 0px 30rpx;
+  margin-bottom: 160rpx;
+}
+.question{
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 10rpx;
+  padding-top: 5rpx;
+}
+.goPiao text{
+  color: #b3b3b3;
+  margin-right: 25rpx;
+}
+.submitBtn{
+  width: 275rpx !important;
+  height: 65rpx;
+  line-height: 65rpx;
+}

@@ -1,0 +1,194 @@
+<view class="fang-bottom">
+	<!--<view class="hd">
+		<view>
+			<view style="font-size: 31rpx;" class="orderId">订单编号：{{orderInfo.orderCode}}</view>
+			<view style="font-size: 31rpx;" class="ordertime">下单时间：{{orderInfo.orderTime}}</view>
+		</view>
+		<view>
+			<text wx:if="{{orderInfo.orderStatus == '101'}}" class="od-status">待付款</text>
+			<text wx:if="{{orderInfo.orderStatus == '303'}}" class="od-status">待收货</text>
+			<text wx:if="{{orderInfo.orderStatus == '401'}}" class="od-status">处理中</text>
+			<text wx:if="{{orderInfo.orderStatus == '305'}}" class="od-status">已完成</text>
+			<text wx:if="{{orderInfo.orderStatus == '102'}}" class="od-status">已取消</text>
+			<text wx:if="{{orderInfo.orderStatus == '301'}}" class="od-status">待发货</text>
+			<text wx:if="{{orderInfo.orderStatus == '302'}}" class="od-status">已发货</text>
+			<text wx:if="{{orderInfo.orderStatus == '304'}}" class="od-status">已签收</text>
+			<text wx:if="{{orderInfo.orderStatus == '402'}}" class="od-status">已退款</text>
+		</view>
+	</view>-->
+	<view class="middle middle-part">
+	    <view class="first-part">
+			<image src="../../../img/address.png" class="adress"></image>
+		</view>
+		<view style="width: 100%;">
+			<view class="phone" style="font-size: 31rpx;">
+				<text>收货人:{{orderInfo.mailName}}</text>
+				<text>{{orderInfo.mailMobile}}</text>
+			</view>
+			<view style="font-size: 28rpx;color:#888888;margin-top:5rpx;" class="addr">
+				{{orderInfo.address}}
+			</view>
+		</view>
+	</view>
+	<view class="item" wx:for="{{goodsVOList}}" wx:key="key" wx:for-item="item" data-id="{{item.productNormId}}" catchtap="chooseGoods">
+		<view wx:if="{{afterSaleChoose}}">
+			<image class="chooseGoods" wx:if="{{item.orderStatus == 401}}" data-orderCode="{{item.orderCode}}" data-id="{{goodsVO.productNormId}}" catchtap="chooseGoods" src="../../../img/grayDH.png"></image>
+			<image class="chooseGoods" wx:elif="{{!item.checked}}" data-orderCode="{{item.orderCode}}" data-id="{{goodsVO.productNormId}}" catchtap="chooseGoods" src="../../../img/radio.png"></image>
+			<image class="chooseGoods" wx:elif="{{item.checked}}" data-orderCode="{{item.orderCode}}" data-id="{{goodsVO.productNormId}}" catchtap="chooseGoods" src="../../../img/radio_checked.png"></image>
+		</view>
+		<view>
+			<image class="cate-img-left" src="{{item.thumbnailImgUrl}}" alt=""></image>
+		</view>
+		<view class="od-item-right">
+			<view class="afterText">
+				{{item.orderStatus == "401" ? '售后处理中' : item.orderStatus == '402' ? '退款完成' : ''}}
+				<!-- {{item.orderStatus == "401" ? '售后处理中' : ''}} -->
+			</view>
+			<view class="cate-name">{{item.productName}}</view>
+			<view class="cate-sub">{{item.productAttr}}</view>
+			<view class="od-item-right-text">
+			    <view class="priceBox">
+					<text class="cate-price">￥{{item.price}}</text>
+					<!--<text class="huaxianPe">￥{{firstPrice}}</text>-->
+				</view>
+				<text style="font-size: 31rpx;font-weight: 600;margin-top:6rpx;color:#b3b3b3;">x{{item.count}}</text>
+			</view>
+		</view>
+	</view>
+	<!--优化-->
+    <view class="orderInfor">
+	   <view class="singleLine">
+		    <text class="detailTitle">订单状态 :</text>
+		    <text wx:if="{{orderInfo.orderStatus == '101'}}" class="odstatus payStatus">待付款</text>
+			<text wx:if="{{orderInfo.orderStatus == '303'}}" class="odstatus">待收货</text>
+			<text wx:if="{{orderInfo.orderStatus == '401'}}" class="odstatus">处理中</text>
+			<text wx:if="{{orderInfo.orderStatus == '305'}}" class="odstatus receiveStatus">已完成</text>
+			<text wx:if="{{orderInfo.orderStatus == '102'}}" class="odstatus">已取消</text>
+			<text wx:if="{{orderInfo.orderStatus == '301'}}" class="odstatus">待发货</text>
+			<text wx:if="{{orderInfo.orderStatus == '302'}}" class="odstatus">已发货</text>
+			<text wx:if="{{orderInfo.orderStatus == '304'}}" class="odstatus receiveStatus">已签收</text>
+			<text wx:if="{{orderInfo.orderStatus == '402'}}" class="odstatus">已退款</text>
+	   </view>
+
+	   <view class="singleLine">
+	       <text class="detailTitle">订单编号 :</text>
+		   <text>{{orderInfo.orderCode}}</text>
+		   <text class="copybtn" bindtap="copyEvent">复制</text>
+	   </view>
+
+	   <view class="singleLine">
+	        <text class="detailTitle">下单时间 :</text>
+		    <text>{{orderInfo.orderTime}}</text>
+	   </view>
+       <block wx:if="{{orderInfo.orderStatus == '101' || orderInfo.orderStatus == '102'}}">
+	   </block>
+	   <block wx:else>
+		<view class="singleLine">
+					<text class="detailTitle">付款时间 :</text>
+					<text>{{orderInfo.orderTime}}</text>
+			</view>
+			<view class="singleLine">
+					<text class="detailTitle">支付方式 :</text>
+					<text>微信支付</text>
+			</view>
+			<view class="singleLine">
+					<text class="detailTitle">配送方式 :</text>
+					<text>快递配送</text>
+			</view>
+	   </block>
+	</view>
+
+	<view class="detail-price detail-product">
+		<text class="detail-price-right">商品金额</text>
+		<text class="detail-price-left come-color">￥{{orderInfo.totalPrice}}</text>
+	</view>
+	<view class="detail-price detail-post">
+		<text class="detail-price-right">运费</text>
+		<text class="detail-price-left come-color">{{orderInfo.mailCost == 0.00 ? '￥0.00' : '￥' + orderInfo.mailCost}}</text>
+	</view>
+	<view class="detail-price detail-allPrice">
+		<text class="detail-price-right small-right">订单金额 :</text>
+		<text class="detail-price-left all-color">￥{{orderInfo.payPrice}}</text>
+	</view>
+
+	<!--待付款 101   取消订单 微信支付   更多（联系客服）-->
+	<block wx:if="{{orderInfo.orderStatus == '101'}}">
+		<view class="button-wrap">
+		    <view class="moreBtn" wx:if="{{!ishasPiao}}">
+                <text class="moreTap" bindtap="payMore">更多</text>
+				<view class="more-wrap hasPiao pay-wrap" wx:if="{{payFlag}}">
+					<text bindtap="goforcustomer">联系客服</text>
+				</view>
+			</view>
+			<!--无票-->
+			<!--<view class="moreBtn" wx:if="{{ishasPiao}}">
+                <text class="moreTap">更多</text>
+				<view class="more-wrap " wx:if="{{moreFlag}}">
+					<text bindtap="goforcustomer">联系客服</text>
+				</view>
+			</view>-->
+		    <view class="moreOuter">
+		      <button wx:if="{{orderInfo.orderStatus == '101'}}" class="w-button cancel-class" bindtap="cancelOrder">取消订单</button>
+			  <button wx:if="{{orderInfo.orderStatus == '101'}}"  bindtap="orderPay" class="w-button pay-class">微信支付</button>
+			</view>
+		</view>
+	</block>
+
+	<!--待发货 301   联系客服 取消订单-->
+	<block wx:elif="{{orderInfo.orderStatus == '301'}}">
+		<view class="button-wrap">
+			<view class="moreOuter">
+				<button wx:if="{{afterSaleChoose}}" class="w-button other-class" bindtap="cancleAfter">取消</button>
+				<button wx:if="{{orderInfo.orderStatus == '301'}}" class="w-button other-class" bindtap="goforcustomer">联系客服</button>
+			   	<button wx:if="{{orderInfo.orderStatus == '301'}}" class="w-button serve-class" bindtap="afterServer">{{afterSaleChoose ? "确定":"申请售后"}}</button>
+				<!-- <button wx:if="{{orderInfo.orderStatus == '301'}}" class="w-button cancel-class" bindtap="cancelOrder">取消订单</button> -->
+			</view>
+		</view>
+	</block>
+
+	<!--待收货 302 -->
+	<block wx:elif="{{orderInfo.orderStatus == '302'}}">
+		<view class="button-wrap">
+		     <view class="moreBtn">
+                <text class="moreTap" bindtap="waitMore">更多</text>
+				<view class="more-wrap wait-wrap {{afterSaleChoose ? 'finishedTop':''}}" wx:if="{{waitFlag}}">
+					<text wx:if="{{afterSaleChoose}}" bindtap="cancleAfter">取消</text>
+					<text bindtap="goforcustomer">联系客服</text>
+				</view>
+			 </view>
+			 <view class="moreOuter">
+				<button wx:if="{{orderInfo.orderStatus == '302'}}" class="w-button other-class" bindtap="goforcustomer">联系客服</button>
+			   	<button wx:if="{{orderInfo.orderStatus == '302'}}" class="w-button serve-class" bindtap="afterServer">{{afterSaleChoose ? "确定":"申请售后"}}</button>
+			</view>
+		</view>
+	</block>
+
+	<!--已完成 304 -->
+	<block wx:elif="{{orderInfo.orderStatus == '304'}}">
+		<view class="button-wrap">
+		     <view class="moreBtn">
+                <text class="moreTap" bindtap="finishMore">更多</text>
+				<view class="more-wrap finished-wrap {{isComment == 0?'playCss':''}} {{afterSaleChoose ? 'finishedTop':''}}" wx:if="{{finishedFlag}}">
+					<text wx:if="{{afterSaleChoose}}" bindtap="cancleAfter">取消</text>
+					<text bindtap="playStar" wx:if="{{isComment == 0}}">评价</text>
+					<text bindtap="goforcustomer">联系客服</text>
+				</view>
+			 </view>
+			 <view class="moreOuter">
+		      <button wx:if="{{orderInfo.orderStatus == '304'}}" class="w-button look-class" bindtap="lookLogistics">查看物流</button>
+			  <button wx:if="{{orderInfo.orderStatus == '304'}}"  bindtap="afterServer" class="w-button serve-class">{{afterSaleChoose ? "确定":"申请售后"}}</button>
+			</view>
+		</view>
+	</block>
+
+	<!--已取消 102  删除订单
+	<block wx:elif="{{orderInfo.orderStatus == '102'}}">
+		<view class="button-wrap">
+			 <view class="moreOuter">
+			    <button wx:if="{{orderInfo.orderStatus == '102'}}" class="w-button other-class" bindtap="deleteOrder">删除订单</button>
+			 </view>
+		</view>
+	</block>
+	-->
+	<!--完成-->
+</view>

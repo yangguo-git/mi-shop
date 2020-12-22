@@ -1,0 +1,11 @@
+<view class="saveTips">
+   <text>保存图片到相册之后,你可以分享海报</text>
+   <!-- <text>生成海报会需要时间,还请你耐心等待</text>	 -->
+</view>
+<view class='btn-box'>
+	<button bindtap='downloadImg' hover-class="none">生成海报</button>
+	<button bindtap='saveImg' hover-class="none">保存图片</button>
+</view>
+<view class='share'>
+	<canvas canvas-id="shareCanvas" style="width:300px;height:380px"></canvas>
+</view>

@@ -1,0 +1,17 @@
+@import '../common.wxss';
+.totalPrice{
+    text-align: right;
+    color: red;
+    font-size: 26rpx;
+    padding-right: 28rpx;
+    padding-top: 10rpx;
+}
+.afterText{
+    position: absolute;
+    right: 35rpx;
+    top: 80rpx;
+    font-size: 28rpx;
+}
+.m-orderList{
+    overflow: hidden;
+}

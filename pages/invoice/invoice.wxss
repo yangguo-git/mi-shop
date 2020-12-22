@@ -1,0 +1,160 @@
+.invoice-top {
+    display: flex;
+    flex-direction: column;
+    padding: 15rpx;
+    font-size: 30rpx;
+    background: white;
+    margin-top: 10rpx;
+}
+
+.invoice-com {
+    transform: scale(0.65);
+}
+
+.invoice-middle {
+    background: white;
+    padding: 10rpx 15rpx;
+    margin-top: 10rpx;
+    font-size: 30rpx;
+    border-bottom: 1px solid #dddddd;
+}
+
+.tips {
+    padding: 0rpx 11rpx;
+    color: #08c160;
+    border-radius: 5rpx;
+    margin-left: 20rpx;
+}
+
+.midle-first {
+    display: flex;
+    align-items: center;
+    padding: 10rpx 0px;
+}
+
+.invoice-head {
+    background: white;
+    padding-left: 15rpx;
+    font-size: 30rpx;
+}
+
+.head-first {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20rpx 0px;
+}
+
+.head-second {
+    display: flex;
+    align-items: center;
+    padding: 15rpx 0px;
+}
+
+.head-second text {
+    width: 200rpx;
+    text-align: center;
+    border: 1px solid #f0f0f8;
+    padding: 7rpx 8rpx;
+    border-radius: 5rpx;
+    margin-right: 20rpx;
+    background-color: #f0f0f8;
+    color: black;
+}
+
+.invoice-common {
+    font-size: 30rpx;
+    background: white;
+    margin-top: 10rpx;
+    padding: 15rpx;
+    background-color: #f0f0f8;
+}
+
+.invoice-five {
+    padding: 20rpx 15rpx;
+    background: white;
+    font-size: 30rpx;
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+}
+
+.invoice-common input {
+    font-size: 30rpx;
+}
+.flag-box {
+    padding: 20rpx 5px;
+    background: white;
+}
+
+.btn-wrap {
+    width: 100%;
+    /* position: fixed;
+    bottom: 0rpx;
+    height: 150rpx;
+    background-color: #fff; */
+    /* z-index: 6; */
+    margin-bottom: 10rpx;
+    background-color: white;
+    padding: 13rpx 0px;
+}
+
+.sure-btn {
+    width: 82.8% !important;
+    background: #f4f4f4;
+    color: #fff;
+    border-radius: 2px;
+    padding: 0;
+    background: linear-gradient(225deg, #25cfa1, #27d98c);
+    border-radius: 50rpx;
+    height: 75rpx;
+    line-height: 75rpx;
+    font-size: 30rpx;
+}
+
+.activeClass {
+    border: 1px solid #08c160 !important;
+    color: white !important;
+    background-color: #08c160 !important;
+}
+
+.personal-box {
+    padding: 10rpx 0px;
+    padding-right: 15rpx;
+}
+
+.company-invoice {
+    padding-right: 15rpx;
+    padding-bottom: 10rpx;
+}
+.invoiceWechat{
+    padding-right: 10rpx;
+}
+.invoiceWechat text{
+    color: #07c160;
+    border: 1px solid #07c160;
+    padding: 5rpx 10rpx;
+    border-radius: 10rpx;
+}
+.groupBox{
+    display: flex;
+    align-items: center;
+}
+.groupBox text{
+    padding-top: 4rpx;
+}
+.groupBoxFir{
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 10rpx;
+}
+.groupBoxSec{
+    padding-top: 10rpx;
+}
+.flag-boxresive{
+    border-bottom: 1px solid #dddddd;
+}
+.flag-last{
+    border-bottom: none;
+}
+.flag-boxcoms{
+    border-bottom: 1px solid #dddddd;
+}

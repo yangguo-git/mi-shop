@@ -1,0 +1,85 @@
+.commonWrap{
+  position: relative;
+}
+.topTitle{
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: white;
+  font-weight: bold;
+  margin-top: 10rpx;
+  padding-left: 8rpx;
+  font-size: 30rpx;
+}
+.middlePart{
+ background-color: white;
+ display: flex;
+ flex-direction: column;
+ border-top: 1px solid #dddddd;
+}
+
+.middlePart image{
+  width: 19rpx;
+  height: 25rpx;
+}
+.every-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 90rpx;
+  font-size: 30rpx;
+}
+.every-item text{
+    margin-left: 20rpx;
+}
+.every-item image{
+    margin-right: 20rpx;
+}
+.btnWrap{
+  position: fixed;
+  bottom: 0px;
+  height: 100rpx;
+  background: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sure-btn{
+    width: 81.8%!important;
+    background: #f4f4f4;
+    color: #fff;
+    border-radius: 2px;
+    z-index: 4;
+    padding: 0;
+    background: linear-gradient(225deg,#25cfa1,#27d98c);
+    border-radius: 50rpx;
+    height: 75rpx;
+    line-height: 75rpx;
+    font-size: 30rpx;
+}
+/* 添加 */
+.contact-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+  background: white;
+  height: 350rpx;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+}
+.customerText{
+   color: black;
+   font-weight: bolder;
+   font-size: 34rpx;
+}
+.cusBtn{
+  background: linear-gradient(225deg,#25cfa1,#27d98c);
+  margin-bottom: 20rpx;
+  width: 500rpx;
+  color: white;
+  text-align: center;
+  padding: 10rpx;
+  border-radius: 15rpx;
+}

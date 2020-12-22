@@ -1,0 +1,40 @@
+<view class="logist">
+	<view class="orderBox">
+		<view>
+			<text>运单编号:</text>
+			<text>{{expresssObj.no}}</text>
+		</view>
+
+		<view>
+			<text>承运来源:</text>
+			<text>{{expresssObj.name}}</text>
+		</view>
+
+		<view>
+			<text>官方电话:</text>
+			<text>{{expresssObj.phone}}</text>
+		</view>
+
+	</view>
+
+	<view class="orderDetail">
+
+	<view class="everyStep" wx:for="{{expresslist}}" wx:key="index">
+			<view class="leftProgress">
+				  <image wx:if="{{index == 0 }}" slot="icon" src="../../../img/hasdo.png" style="width:25rpx; height: 25rpx;" ></image>
+				  <image wx:if="{{index != 0 }}" slot="icon" src="../../../img/waitdo.png" style="width:21rpx; height: 21rpx;"></image>
+				  <view class="shuLine" wx:if="{{index != expresslist.length-1 }}"></view>
+			</view>
+			<view class="rightLogist">
+				<view class="littleWord">{{item.content}}</view>
+				<view class="littleWord">{{item.time}}</view>
+			</view>
+	</view>
+
+	<view wx:if="{{expresslist.length == 0}}">
+		 <text>暂无物流信息</text>
+	</view>
+
+	</view>
+
+</view>

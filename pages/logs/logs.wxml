@@ -1,0 +1,11 @@
+
+<block wx:if="{{isShow}}">
+  <view class="logsBox">
+   <text>您好,请您同意授权</text>
+   <view class="btnWrap">
+      <button class='pop_btn' plain="true" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">确认</button>
+      <button class='cancelBtn'bindtap="handleCancel">取消</button>
+   </view>
+   <text>以便我们为您提供更好的服务</text>
+  </view>
+</block>

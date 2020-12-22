@@ -1,0 +1,28 @@
+<!-- 常见问题 -->
+<!-- <view class="commonWrap">
+  <view class="topTitle">常见问题</view>
+  <view class="middlePart">
+    <view class="every-item" bindtap="goTuiKuan">
+      <text>售后退款</text>
+      <image src="../../../img/in_black.png"></image>
+    </view>
+  </view>
+  <!-- 按钮 -->
+<!-- <view class="btnWrap">
+    <button class="sure-btn" bindtap="callPhone">联系客服</button>
+  </view>
+</view> -->
+<view class="contact">
+  <view class="contact-item">
+    <text class="customerText">客服电话</text>
+    <text>兑换链接或页面问题处理</text>
+    <text>400-180-0956(工作日9:00-18:00)</text>
+    <view class="cusBtn" bindtap="callPhone1">立即拨打</view>
+  </view>
+  <view class="contact-item">
+    <text class="customerText">客服电话</text>
+    <text>产品无法兑换问题处理</text>
+    <text>4000-385-386(工作日9:30-20:00)</text>
+    <view class="cusBtn" bindtap="callPhone2">立即拨打</view>
+  </view>
+</view>

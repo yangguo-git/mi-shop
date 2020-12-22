@@ -1,0 +1,61 @@
+<wxs module="unit" src="../../filter/formatStr.wxs"></wxs>
+<view wx:if="{{isShow}}">
+    <view class="noGoods"  wx:if="{{noGoods}}">
+        <view class="noGoods-img">
+            <image src="../../img/shopping_empty.png" class="imgset"></image>
+        </view>
+        <view class="noGoods-text">
+            <view class="empty">购物车还是空的</view>
+            <view class="goBuy">赶紧买点宝贝犒劳下自己吧</view>
+        </view>
+        <view>
+            <button class="lookAround" type="primary" bindtap="lookAround">随便逛逛</button>
+        </view>
+    </view>
+    <view class="itemContent" wx:if="{{!noGoods}}">
+        <view class="item" wx:for="{{shopGoods}}" wx:key="key" wx:for-item="item" data-id="{{item.id}}" bindtap="chooseGoods">
+            <view>
+                <image class="chooseGoods" wx:if="{{!item.checked}}"  src="../../img/radio1.png"></image>
+                <image class="chooseGoods" wx:if="{{item.checked}}"  src="../../img/radio_checked.png"></image>
+            </view>
+            <image class="cate-img-left" src="{{item.thumbnailImgUrl}}" alt=""></image>
+            <view class="od-item-right">
+                <image class="deleteGoods" data-id="{{item.id}}" catchtap="deleteGoods" src="../../img/delete2.png"></image>
+                <view class="cate-name">{{item.productName}}</view>
+                <view class="cate-sub singleSub">{{item.normName}}</view>
+                <view class="od-item-right-text">
+                    <view>
+                        <view class="huaPrice">￥{{unit.saveSecond(item.marketPrice/100)}}</view>
+                        <view class="cate-price">￥{{unit.saveSecond(item.price/100)}}</view>
+                    </view>
+                    <view class="edit-number">
+                        <view class="exitNumber-content">
+                            <view class="reduce {{item.count == 1 ? 'gray': ''}}" data-id="{{item.id}}" catchtap="reduce">-</view>
+                            <input type="text" data-id="{{item.id}}" disabled="disabled" class="numberInput" bindinput="bindUserNameInput" name="number" value="{{item.count}}" />
+                            <view class="add" data-id="{{item.id}}" catchtap="add">+</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="goSettlement">
+            <view>
+                <view class="allChoose" wx:if="{{allChecked}}" bindtap="chooseAllGoods">
+                    <image class="chooseGoods"  src="../../img/radio_checked.png"></image>全选
+                </view>
+                <view class="allChoose" wx:if="{{!allChecked}}" bindtap="chooseAllGoods">
+                    <image class="chooseGoods" src="../../img/radio1.png"></image>全选
+                </view>
+            </view>
+            <view class="allChoose">
+                <view class="allCgoose-left">
+                    <view class="totalPrice">合计：￥ <text style="color:red">{{unit.saveSecond(totalPrice/100)}}</text></view>
+                    <view class="excludingFreight">(不含运费)</view>
+                </view>
+                <view class="setParent">
+                    <button class="settlement {{isDisabled ? 'isDisabled' : ''}}" bindtap="settlement" disabled="{{isDisabled}}" type="primary">结算</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

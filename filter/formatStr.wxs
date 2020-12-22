@@ -1,0 +1,79 @@
+var unit = {
+  reduceSecond: function(text) {
+    var cates = text;
+    if(cates.indexOf("|")!=-1){
+      var catesArr = cates.split("|");
+      var pinStr = "";
+      catesArr.forEach(function(objs){
+        pinStr = pinStr+' '+ objs.substring(objs.indexOf(":")+1);
+      })
+      console.log(pinStr);
+    }else{
+      var pinStr = "";
+      var catesArr = cates.split(":");
+      catesArr.forEach(function(objs){
+        pinStr+=catesArr[1];
+      })
+    }
+    return pinStr;
+  },
+  saveSecond:function(text){
+    var getNum = text*1;
+    var postNum = getNum.toFixed(2);
+    return postNum;
+  },
+  manageStr:function(str){
+    var getStr = str;
+    var postStr;
+    if(getStr){
+      postStr=getStr.substring(0,1)+'****'+getStr.substring(getStr.split('').length-1,getStr.split('').length);
+    }
+     return postStr;
+  },
+  getimeFormat:function(timestamp){
+    var getData = timestamp;
+    if (timestamp) {
+          var date = getDate(getData);
+      } else {
+          var date = getDate();
+      }
+      Y = date.getFullYear(),
+          m = date.getMonth() + 1,
+          d = date.getDate(),
+          H = date.getHours(),
+          i = date.getMinutes(),
+          s = date.getSeconds();
+      if (m < 10) {
+          m = '0' + m;
+      }
+      if (d < 10) {
+          d = '0' + d;
+      }
+      if (H < 10) {
+          H = '0' + H;
+      }
+      if (i < 10) {
+          i = '0' + i;
+      }
+      if (s < 10) {
+          s = '0' + s;
+      }
+      var t = Y + '-' + m + '-' + d + ' ' + H + ':' + i + ':' + s;
+      return t;
+  },
+  strPostarr:function(str){
+     var getStr = str;
+     var postArrs=[];
+     if(getStr){
+        postArrs = JSON.parse(getStr)
+     }
+     return postArrs;
+  }
+}
+module.exports = {
+  reduceSecond: unit.reduceSecond,
+  saveSecond:unit.saveSecond,
+  manageStr:unit.manageStr,
+  getimeFormat:unit.getimeFormat,
+  strPostarr:unit.strPostarr
+}

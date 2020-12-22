@@ -1,0 +1,125 @@
+.top-part {
+  background: white;
+  margin: 15rpx 15rpx;
+}
+
+.commont-box {
+  padding: 10rpx;
+  font-size: 30rpx;
+  padding-top: 15rpx;
+}
+
+.btn-box {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 10rpx;
+  font-size: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.btn-box text {
+  width: 130rpx;
+  text-align: center;
+  border: 1px solid #f0f0f8;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  background-color: #f0f0f8;
+  color: black;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.activeClass {
+  border: 1px solid #08c160 !important;
+  color: #08c160 !important;
+  background-color: #e5f9ef !important;
+}
+
+.comment-area {
+  background-color: white;
+  margin: 0rpx 15rpx;
+  border-bottom: 1px solid #dddddd;
+}
+
+.area-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 0px;
+  align-items: center;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.area-top .starts {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 8rpx;
+}
+
+.user-head {
+  width: 60rpx;
+  height: 60rpx;
+}
+.cot-box{
+  display: flex;
+  align-items: center;
+  padding-top: 6rpx;
+}
+.cot-box image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 8rpx;
+  margin-left: 8rpx;
+}
+
+.area-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 10rpx 10rpx 80rpx;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.area-middle {
+  padding: 10rpx 10rpx 10rpx 80rpx;
+}
+.area-middle text{
+  font-size: 30rpx;
+}
+
+.head-nick {
+  display: flex;
+  align-items: center;
+}
+
+.head-nick text {
+  margin-left: 10rpx;
+}
+.co-time{
+  margin-right: 15rpx;
+}
+.comimg-box{
+  display: flex;
+  margin-top: 10rpx;
+}
+.comimg-box image{
+  width: 110rpx;
+  height: 110rpx;
+  margin-right: 10rpx;
+}
+.grayClass{
+  color: #999999;
+}
+.nomore{
+  color: #909093;
+  text-align: center;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+.noCommentClass{
+   background-color: white;
+   text-align: center;
+   margin: 15rpx;
+   padding: 15rpx 0px;
+   font-size: 30rpx;
+}

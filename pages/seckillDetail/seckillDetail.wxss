@@ -1,0 +1,135 @@
+.page-swiper{
+    height: 350rpx;
+}
+.outerSwiper{
+    height: 100%;
+}
+.phoneWrap{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputPhone{
+  font-size: 32rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+  flex: 1;
+  padding-left: 20rpx;
+}
+.getPhoneClass{
+    font-style: normal;
+    font-weight: normal;
+    background-color: #f0f0f8;
+    font-size: 30rpx;
+    text-align: center;
+    padding: 10rpx;
+    width: 170rpx !important;
+    margin-right: 20rpx !important;
+    color: #000000;
+}
+.redText{
+    color: red;
+    font-size: 28rpx;
+    margin-right: 15rpx;
+}
+.originPrice{
+    text-decoration: line-through;
+    color: #a6a6a6;
+    font-size: 28rpx;
+}
+.middlePart{
+    margin-top: 20rpx;
+    background-color: white;
+    padding: 10rpx 10rpx 10rpx 0rpx;
+    /* margin-left: 20rpx; */
+    padding-left: 20rpx;
+    border-bottom: 1rpx solid #cccccc;
+}
+.productName{
+    font-size: 32rpx;
+    margin-top: 10rpx;
+}
+.detail-box{
+    background-color: white;
+    margin-bottom: 130rpx;
+    padding-top: 15rpx;
+}
+.buyNow{
+    width: 61.8%!important;
+    background: #f4f4f4;
+    color: #fff;
+    border-radius: 2px;
+    z-index: 4;
+    padding: 0;
+    background: linear-gradient(225deg,#25cfa1,#27d98c);
+    border-radius: 50rpx;
+    height: 75rpx;
+    line-height: 75rpx;
+    font-size: 30rpx;
+    
+}
+.btnBox{
+    background-color: rgba(000, 000, 000, 0.6);
+    height: 130rpx;
+    position: fixed;
+    bottom: 0px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.slide-image{
+    width: 100%;
+    height: 100%;
+}
+/* 轮播图点样式 */
+.outerSwiper .wx-swiper-dot {
+    width: 25rpx;
+    height: 5rpx;
+    display: inline-flex;/* 这里设置点点之间的距离 */
+    border-radius: 0px;
+    margin-left: 3rpx;
+    justify-content: space-between;
+  }
+  .bigPrice{
+      font-size: 32rpx;
+  }
+  .detail-title{
+      padding: 20rpx;
+      color: #aaaaaa;
+      font-size: 28rpx;
+  }
+  .itemLine{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 20rpx;
+      flex-wrap: wrap;
+  }
+  .every-item{
+      width: 50%;
+      padding-right: 20rpx;
+      padding-top: 20rpx;
+      box-sizing: border-box;
+  }
+  .seriesImg{
+      width: 100%;
+      height: 510rpx;
+      border-radius: 11rpx;
+  }
+  .seriesType{
+      color: #aaaaaa;
+      font-size: 28rpx;
+  }
+  .drama{
+    font-size: 26rpx;
+    margin-left: 10rpx;
+  }
+  .middleBox{
+      background-color: white;
+  }
+  .allDetial{
+      padding-left: 10rpx;
+      padding-right: 10rpx;
+  }

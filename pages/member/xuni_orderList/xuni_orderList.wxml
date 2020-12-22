@@ -1,0 +1,61 @@
+<wxs module="unit" src="../../../filter/formatStr.wxs"></wxs>
+<view class="container greybg">
+	<!-- tab栏 -->
+	<view class="outer_tit_box">
+		<view class="list_tit">
+			<view wx:for="{{tabData}}" wx:key="id" data-orderStatus="{{item.orderStatus}}" bindtap="changeTab">
+				<text class="{{orderStatus == item.orderStatus?'bottom_border':''}}">{{item.name}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="m-orderList" wx:if="{{isShow}}">
+		<block wx:for="{{orderList}}" wx:key="key" wx:for-item="item">
+			<view class="item2">
+				<view class="item_top">
+					<view class="productName">{{item.productName}}</view>
+					<view>
+					<!-- <text wx:if="{{item.orderStatus == '304'}}" class="od-status successInfo">成功</text>
+					<text wx:if="{{item.orderStatus == '301'}}" class="od-status failInfo">失败</text>
+					<text wx:if="{{item.orderStatus == '302'}}" class="od-status acceptInfo">受理中</text> -->
+					<text wx:if="{{item.orderStatus == '1'}}" class="od-status successInfo">成功</text>
+					<text wx:if="{{item.orderStatus == '0'}}" class="od-status failInfo">失败</text>
+					<text wx:if="{{item.orderStatus == '2'}}" class="od-status acceptInfo">受理中</text>
+
+					<!-- <text wx:if="{{item.orderStatus == '101'}}" class="od-status">待付款</text>
+					<text wx:if="{{item.orderStatus == '303'}}" class="od-status">待收货</text>
+					<text wx:if="{{item.orderStatus == '401'}}" class="od-status">处理中</text>
+					<text wx:if="{{item.orderStatus == '305'}}" class="od-status">已完成</text>
+					<text wx:if="{{item.orderStatus == '102'}}" class="od-status">已取消</text>
+					<text wx:if="{{item.orderStatus == '301'}}" class="od-status">待发货</text>
+					<text wx:if="{{item.orderStatus == '302'}}" class="od-status">已发货</text>
+					<text wx:if="{{item.orderStatus == '304'}}" class="od-status">已签收</text>
+					<text wx:if="{{item.orderStatus == '402'}}" class="od-status">已退款</text> -->
+					</view>
+				</view>
+				<view class="item_con">
+					<view class="item_order">
+						<view class="item_left">订单编号：</view>
+						<view class="commonGray">{{item.orderId}}</view>
+					</view>
+					<view class="item_time">
+						<view class="item_left">下单时间：</view>
+						<view class="commonGray">{{unit.getimeFormat(item.createTime)}}</view>
+					</view>
+					<view class="item_money relativeBox">
+						<view class="item_left">订单金额：</view>
+						<view class="priceOrder">￥{{item.payFee/100}}</view>
+						<text wx:if="{{item.cam && item.orderStatus == '1'}}" class="rightBtn" bindtap="nowUse" data-cam="{{item.cam}}" data-url="{{item.productUrl}}">立即使用</text>
+					</view>
+						<!-- <button class="again_purchase" bindtap="againToPurchaseFn" >再次购买</button> -->
+				
+				</view>
+			</view>
+		</block>
+	</view>
+	<view class='' wx:if="{{!isShow}}">
+	     <view class="emptyBox">
+		   <image src="../../../img/empty.png" class="empty"></image>
+		   <text>暂无订单</text>
+		 </view>
+	</view>
+</view>

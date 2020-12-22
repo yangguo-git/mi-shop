@@ -1,0 +1,39 @@
+.markareas{
+    border: 1px solid #cccccc;
+    width: 97%;
+    margin: 12px auto;
+    height: 250px;
+    font-size: 30rpx;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+    padding-left: 3rpx;
+    padding-top: 3rpx;
+}
+.posi-wrap{
+  position: relative;
+}
+.limit-word{
+  position: absolute;
+  bottom: 10rpx;
+  right: 25rpx;
+}
+.btn-wrap{
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    background-color: white;
+    padding: 15rpx 0px;
+}
+.sure-btn{
+    width: 81.8%!important;
+    background: #f4f4f4;
+    color: #fff;
+    border-radius: 2px;
+    z-index: 4;
+    padding: 0;
+    background: linear-gradient(225deg,#25cfa1,#27d98c);
+    border-radius: 50rpx;
+    height: 75rpx;
+    line-height: 75rpx;
+    font-size: 30rpx;
+}

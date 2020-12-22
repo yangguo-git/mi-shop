@@ -1,0 +1,21 @@
+.firstImg{
+    width: 100%;
+    height: 100%;
+}
+.secondImg{
+    width:50px;
+    height:50px;
+    position:absolute;
+    top:75px;
+    left:161px;
+}
+.videoClass{
+  width:100%;
+  height:200px;
+  position:absolute;
+  top:0;
+}
+.swiperClass{
+  width:100%;
+  height:200px;
+}

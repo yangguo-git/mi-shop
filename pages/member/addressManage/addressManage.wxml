@@ -1,0 +1,30 @@
+<!--pages/member/ticketList/ticketList.wxml-->
+<view class="container greybg">
+    <view class="orderReceiveList">
+        <view class="m-shipAddress ma-layort">
+            <view  class="item adressBox" wx:for="{{addressList}}" wx:for-item="item" wx:if="{{isShowInfo}}" wx:key="key">
+                <view class="left-part">
+                    <image src="../../../img/address.png"></image>
+                </view>
+                <view class="middle" data-id="{{item.id}}" bindtap="chooseAddres">
+                    <view class="phone">
+                       <text>收货人：{{item.name}}</text>
+                       <text>{{item.phone}}</text>
+                    </view>
+                    <view class="addr">
+                        {{item.province}}-{{item.city}}-{{item.district}},{{item.address}}
+                    </view>
+                </view>
+                <view class="right" data-id="{{item.id}}" bindtap="editRess">
+                    <image src="../../../img/in_grey.png"></image>
+                </view>
+            </view>
+            <view class='buttom' wx:if="{{!isShowInfo}}">
+                <text>请点击新增地址~</text>
+            </view>  
+        </view>
+        <view class="button-wrap">
+            <button bindtap="addRess" class="w-button">新增地址</button>
+        </view>
+    </view>
+</view>

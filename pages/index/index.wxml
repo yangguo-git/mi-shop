@@ -1,0 +1,117 @@
+<wxs module="unit" src="../../filter/formatStr.wxs"></wxs>
+
+<!-- <view class="page-search">
+	<view class="zw-search-link">
+		<image class="cate-search-img" src="../../img/index-cha.png"></image>
+		<text class="lophone" bindtap="inputSearch">请输入商品名称</text>
+	</view>
+</view> -->
+
+<view class="page-swiper">
+	<swiper class="outerSwiper" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" circular="{{circular}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{false}}" interval="{{interval}}" duration="{{duration}}">
+		<block wx:for="{{swipersArr}}" wx:for-item="item" wx:key="id">
+			<swiper-item>
+				<image wx:if="{{item.appid}}" mode='' src="{{item.coverImgUrl}}" class="slide-image" bindtap="onimageEvent" data-appId="{{item.appid}}" data-minilink="{{item.url}}" />
+				<image wx:else src="{{item.coverImgUrl}}" class="slide-image" mode='' bindtap="goUrls" data-golink="{{item.url}}" />
+			</swiper-item>
+		</block>
+	</swiper>
+</view>
+<view class="imgBlock">
+	<view class="imgBlockItem1" catchtap="navhuafei">
+	<view class="fee_plus_equity">话费+权益包</view>
+		<image class="q1Img" mode="widthFix" src="/img/q1.png"></image>
+	</view>
+	<view class="imgBlockItem2">
+	<view class="imgBlockItem2Txt1" bindtap="navMiaosha">9.9元秒杀</view>
+	<view class="imgBlockItem2Txt2" bindtap="navZhekou">会员折扣嗨</view>
+		<image class="q2Img" mode="widthFix" src="/img/q2.png" bindtap="navMiaosha"></image>
+		<image class="q3Img" mode="widthFix" src="/img/q3.png" bindtap="navZhekou"></image>
+	</view>
+</view>
+<block wx:if="{{isShowproduct}}">
+<view class="item-product" wx:for="{{allListArr}}" wx:key="keyout" wx:for-item="item">
+	<view class="item-top">
+		<text class="first-name">{{item.firstCategoryName}}</text>
+		<view bindtap="lookMore" data-firstid="{{item.firstCategoryId}}" class="moreWrap">
+			<text class="look-more">更多</text>
+			<image src="../../img/colormore.png" class="morePngs"></image>
+		</view>
+	</view>
+	<view class="item-middle">
+
+		<view bindtap="lookDetail" class="left-item every-item" wx:for="{{item.productInfos}}" wx:if="{{index<2}}" wx:key="keyin" wx:for-item="innerItem" data-proid="{{innerItem.id}}">
+			<image src="{{innerItem.thumbnailImgUrl}}"></image>
+			<text class="fir-name">{{innerItem.productName}}</text>
+			<text class="sub-name">{{innerItem.productSubtitle}}</text>
+			<view class="productShopsub">
+				<text class="product-price">¥{{unit.saveSecond(innerItem.salePrice/100)}}</text>
+				<text class="hua-price">¥{{unit.saveSecond(innerItem.marketPrice/100)}}</text>
+				<view class="productShop-content" data-id="{{innerItem.id}}" catchtap="addToCart">
+					<image class="productShop" src="../../img/shop.png"></image>
+				</view>
+			</view>
+		</view>
+
+	</view>
+	<view class="bottom-line {{index == allListArr.length -1 ? 'last-item':''}}"></view>
+</view>	
+</block>
+  
+<view class="dialog" wx:if='{{isDialog}}'>
+</view>
+<view class="commodity_attr_list" wx:if='{{isDialog}}'>
+	<view class="cancle" bindtap="cancle">×</view>
+	<view bindtap="lookDetail" class="item">
+		<view>
+			<image class="cate-img-left" src="{{chooseImage}}" alt=""></image>
+		</view>
+		<view class="od-item-right">
+			<view>
+				<text class="cate-price">￥{{unit.saveSecond(salePrice/100)}}</text>
+				<text class="diaPrice">￥{{unit.saveSecond(productInfo.marketPrice/100)}}</text>
+			</view>
+			<view class="selectArrText">已选：{{selectArrText}}</view>
+		</view>
+	</view>
+	<!--每组属性-->
+	<view class="attr_box" wx:for="{{attrValueList}}" wx:for-item="attrValueObj" wx:key="key" wx:for-index="attrIndex">
+		<!--属性名-->
+		<view class="attr_name">{{attrValueObj.attrKey}}</view>
+
+		<!--属性值-->
+		<view class="attr_value_box">
+			<!--每个属性值-->
+			<view class="attr_value {{attrIndex==firstIndex || attrValueObj.attrValueStatus[valueIndex]?(value==attrValueObj.selectedValue?'attr_value_active':''):'attr_value_disabled'}}" bindtap="selectAttrValue" data-status="{{attrValueObj.attrValueStatus[valueIndex]}}" data-value="{{value}}" data-key="{{attrValueObj.attrKey}}" data-code="{{id}}" data-index="{{attrIndex}}" data-selectedvalue="{{attrValueObj.selectedValue}}" wx:for="{{attrValueObj.attrValues}}" wx:key="key" wx:for-item="value" wx:for-index="valueIndex">{{value}}</view>
+		</view>
+	</view>
+	<view class="edit-number">
+		<view style="font-size: 30rpx;">
+			数量
+		</view>
+		<view class="exitNumber-content">
+			<view class="reduce" bindtap="reduce">-</view>
+			<input type="text" disabled="disabled" class="numberInput" bindinput="bindUserNameInput" name="number" value="{{productNumber}}" />
+			<view class="add" bindtap="add">+</view>
+		</view>
+	</view>
+	<view>
+		<button class="addShopCard" bindtap="addShopCard" type="primary">确定</button>
+	</view>
+</view>
+<!-- 新添加权益区开始 -->
+<view class="quanyiNew">
+  <view class="quanTitle" wx:if="{{quanyiArr.length > 0}}"> 权益产品</view>
+  <view class="mainPart">
+    <view wx:for="{{quanyiArr}}" wx:key="index" class="mainItem" bindtap="navdetail" data-detail="{{item}}">
+	   <view class="imgBox">
+		   <image class="" src="{{item.productIcon ||item.thumbnailImgUrl}}"  />
+	   </view>
+	   <view class="proName">{{item.productName}}</view>
+	   <text class="totalTitle"><text class="marks">￥</text><text class="bigPrice">{{unit.saveSecond(item.productPrice/100)}}</text></text>
+	   <text class="originPrice">￥{{unit.saveSecond(item.originalPrice/100)}}</text>
+	</view>
+  </view>
+	
+</view>
+<!-- 新添加权益区结束 -->

@@ -1,0 +1,164 @@
+<!-- <navigator url='../../kingCard/pages/tencentCard/tencentCard'>跳转</navigator> -->
+
+<swiper wx:if='{{swipeArrs.length>0}}' indicator-dots="{{swipeArrs.length>1?true:false}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{swipeArrs}}" wx:key='index'>
+    <swiper-item>
+      <image src="{{item.url}}"  id='{{index}}' class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<!-- <view class='top_title'>运营商账期维护中，可能延期或失败</view> bindtap='swiper_item_click'-->
+
+<scroll-view scroll-x='{{false}}' bindscrolltolower='1bind_bottom'>
+    <view class="top_phone">
+      <input placeholder="请输入手机号" maxlength='{{maxlength}}' type='{{input_type}}' bindblur='bindblur' bindinput='top_phone_input' bindfocus='top_phone_focus' value='{{kongge_phone}}' placeholder-class="grayClass"></input>
+      <button style='border: 1rpx solid #19ad19;color:#19ad19;border-radius:15rpx;' wx:if='{{btn_phone}}' open-type="getPhoneNumber" formType="submit" bindgetphonenumber='phonenumber'>本机号码</button>
+      <button style='border: 1rpx solid #19ad19; color:#19ad19;border-radius:15rpx;' wx:if='{{!btn_phone}}' formType="submit" bindtap='phonenumber'>本机号码</button>
+    </view>
+  <view class='tips'>仅支持联通话费充值</view>
+  <view class='chat'>{{phone_type}}</view>
+  <block wx:if='{{if_phone_list}}'>
+    <block wx:for="{{phone_show_list}}" wx:key=''>
+      <view class='item_phone_list' bindtap='item_phone_click' id='{{item}}'>{{item}}</view>
+    </block>
+    <view class='phone_list' style='position: relative;'>
+      <view class='phone_list_bg' bindtap='phone_list_bg_click'></view>
+    </view>
+  </block>
+  <view class='underline'></view>
+<!-- 
+ <form bindsubmit="form_id_bg" report-submit='true'>
+    <button class='tab_two {{tab_two_click_item==2?"tab_on":"tab_no"}}' formType="submit" bindtap='tab_two_click' id='2'>
+      <view class='tab_two_click_item'>充流量
+        <text class='official'>官方</text>
+      </view>
+    </button>
+    <button class='tab_two {{tab_two_click_item==1?"tab_on":"tab_no"}}' formType="submit" bindtap='tab_two_click' id='1'>
+      <view class='tab_two_click_item'>充话费
+        <text class='official'>官方</text>
+      </view>
+    </button>
+  </form> -->
+
+
+  <view class='flow_title_detail' wx:if='{{tab_two_click_item==1}}'>
+    <!-- 充话费 -->
+    <text class='coupons_money' style='color:red;' wx:if='{{coupons_2&&coupons_2_money!=null}}'>最高可优惠{{coupons_2_money}}元</text>
+  </view>
+
+  <view class='flow_title_detail' wx:if='{{tab_two_click_item==2}}'>
+    <!-- 充流量 -->
+    <text class='coupons_money' style='color:red;' wx:if='{{coupons_1&&coupons_1_money!=null}}'>最高可优惠{{coupons_1_money}}元</text>
+  </view>
+
+    <!-- 充话费 -->
+
+    <block wx:if='{{if_phone_yse}}'>
+      <view class='cost'>
+        <view class='cb'>
+          <block wx:for="{{tab_two_click_item==1?addr_2_data:addr_1_data}}" wx:key="index">
+            <view bindtap='changeType' data-productid='{{item.productId}}' data-store_name="{{tab_two_click_item==1?item.originalPrice:item.productContent}}" data-originalPrice='{{item.originalPrice}}' data-productContent='{{item.productContent}}' data-productPrice="{{item.productPrice}}"
+              style='{{index==2||index==5?"margin-right: 0;":""}}' class="ci {{productId==addr_1_data[index].productId||productId==addr_2_data[index].productId?'ck':''}}">
+              <button class="cib" formType="submit" style='padding:15rpx 0 0 0;'>
+                <view style='color: #1baf1b;'>{{item.productName}}</view>
+                <view style='font-size:25rpx;color: #1baf1b;'>售价:{{item.productPrice}}元</view>
+              </button>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+
+    <block wx:if='{{!if_phone_yse}}'>
+      <view class='cost'>
+        <view class='_cb'>
+          <view wx:for="{{tab_two_click_item==1?addr_2_data:addr_1_data}}" wx:key="index" style='{{index==2||index==5?"margin-right: 0;":""}}' class="_ci {{moneytype==1?'_ck':''}}">
+            <button class="_cib" formType="submit" bindtap='show_tt' style='padding:15rpx 0 0 0;'>
+              <view style='color: #1baf1b;'>{{item.productName}}</view>
+              <view style='font-size:25rpx;color: #1baf1b;'>售价:{{item.productPrice}}元</view>
+            </button>
+          </view>
+        </view>
+      </view> 
+    </block>
+
+    <!-- 选择权益 -->
+    <view wx:if='{{addr_3_data_item.length>0}}' class='flow_title_detail' style='margin: 30rpx 0 30rpx 40rpx;'>选优惠
+      <!-- <text style='color:#000'> (可选)</text> -->
+    </view>
+    <scroll-view wx:if='{{addr_3_data_item.length>3}}' scroll-y  class="scrollStyle" style='max-width: 100%;'>
+      <view style='max-width: 100%;' class='privilege_list'>
+        <block wx:for='{{addr_3_data_item}}' wx:key='index'>
+          <view style='max-width: 100%;' class='privilege_card {{in_card_bg_show&&in_right_top==addr_3_data_item[index].productId&&if_phone_yse?"bg":""}}' data-productContent='{{item.productContent}}' data-preferentialType='{{item.preferentialType}}' data-productType='{{item.productType}}'
+            bindtap='in_card' id='{{item.productId}}'>
+            <!-- <view class='r_text'>{{item.productFlag}}</view> -->
+            <!-- <view class='right_top {{in_card_bg_show&&in_right_top==addr_3_data_item[index].productId&&if_phone_yse?"in_right_top":""}}'></view> -->
+            <image class='img' src='{{item.thumbnailImgUrl}}'></image>
+            <view class='title'>{{item.productName}}</view>
+            <!-- <view class='content'>{{item.productContent}}</view> -->
+            <view style='font-size:25rpx;color: #1baf1b;text-align: center;'>售价:{{item.productPrice}}元</view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <scroll-view wx:if='{{addr_3_data_item.length<=3}}'  scroll-y style='max-width: 100%;' class="scrollStyle">
+      <view style='max-width: 100%;' class='privilege_list'>
+        <block wx:for='{{addr_3_data_item}}' wx:key='index'>
+          <view style='max-width: 100%;' class='privilege_card {{in_card_bg_show&&in_right_top==addr_3_data_item[index].productId&&if_phone_yse?"bg":""}}' data-productContent='{{item.productContent}}' data-preferentialType='{{item.preferentialType}}' data-productType='{{item.productType}}' bindtap='in_card' id='{{item.productId}}'>
+            <!-- <view class='r_text'>{{item.productFlag}}</view> -->
+            <!-- <view class='right_top {{in_card_bg_show&&in_right_top==addr_3_data_item[index].productId&&if_phone_yse?"in_right_top":""}}'></view> -->
+            <image class='img' src='{{item.thumbnailImgUrl}}'></image>
+            <view class='title'>{{item.productName}}</view>
+            <!-- <view class='content'>{{item.productContent}}</view> -->
+            <view style='font-size:25rpx;color: #1baf1b;text-align: center;'>售价:{{item.productPrice}}元</view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <!-- <view wx:if='{{!show_summarize}}' class='underline'></view> -->
+
+
+    <!-- <view class='underline' wx:if='{{show_summarize&&addr_3_data_item.length==0}}' style='height: 200rpx;'></view> -->
+    <block wx:if='{{show_summarize}}'>
+      <view style='height:250rpx;width:100%;'></view>
+      <view class='summarize' wx:for='{{products}}' wx:key='index' wx:if='{{addr_4_data_id==item.productId}}' id='{{addr_4_data_id}}'>
+        <view class='rush_btn' bindtap='topUp_success' wx:if='{{!in_card_bg_show}}'>充值</view>
+        <view class='rush_btn' bindtap='topUp_success' wx:if='{{in_card_bg_show}}'>抢购</view>
+        <view class='summarize_title' style='font-weight:bold;'>
+          <text>{{item.productContent}}</text>
+        </view>
+        <view class='summarize_detail' wx:if='{{!in_card_bg_show&&!ok_price}}'>选优惠享更多优惠</view>
+        <view class='summarize_detail' wx:if='{{ok_price}}'>
+          <!-- {{item.productContent}} -->
+          使用优惠券省{{tab_two_click_item==2?coupons_1_money:coupons_2_money}}元</view>
+        <!-- <view class='summarize_detail' wx:if='{{!ok_price}}'>{{item.productContent}}</view> -->
+        <view class='summarize_money'>
+          <text style='font-weight:bold;font-size: 40rpx;'>￥{{ok_price?ok_price:item.productPrice}}</text>
+          <text class='summarize_money_yuanjia'>￥ {{item.originalPrice}}</text>
+        </view>
+      </view>
+    </block>
+    <!-- <block wx:if='{{coupons_langth}}'>
+    <view class='arrow' bindtap='to_nav'></view>
+    <view class='bottom_discount' bindtap='to_nav'>获得{{coupons_langth}}张优惠券</view>
+  </block> -->
+    <block wx:for='{{products}}' wx:key='index' wx:if='{{is_tengxun_vip&&addr_4_data_id==item.productId}}'>
+      <view class='tengxun_vip_card_bg' bindtap='hide_is_tengxun_vip'></view>
+      <view class='tengxun_vip_card'>
+        <view class='text_1'>已选择的商品</view>
+        <view class='text_2' style='font-weight: 900;'>{{item.productName}}</view>
+        <view class='fengexian'></view>
+        <view class='text_1'>将腾讯视频VIP开通至账号</view>
+        <view class='borr'>
+        <view class='text_1' style='color:#666;'>QQ号</view>
+        <input type='number' bindblur='tengxun_vip_input_blur'value='{{tengxun_vip_input_value}}' placeholder='请输入QQ号'></input></view>
+        <view class='text_1' style='line-height: 40rpx;'>请确保您已知悉商品介绍；因会员商品支付后即充值到账，购买成功后将不能进行退款</view>
+        <view class='text_1'>请您在付款前仔细核对您的充值账号</view>
+        <view class='fengexian'></view>
+        <view class='page_row'>
+          <view class='text_2 money'>￥{{ok_price?ok_price:item.productPrice}}元</view>
+          <button catchtap='is_ten_x_v_pay'>支付</button>
+        </view>
+      </view>
+    </block>
+</scroll-view>

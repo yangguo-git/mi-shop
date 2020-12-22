@@ -1,0 +1,38 @@
+<view class="point-wrap">
+	<image src="{{postImg}}" class="product-point"></image>
+	<view class="right-part">
+		<text class="pointText">商品评分</text>
+		<view>
+			<block wx:for="{{onepart}}" wx:key="index">
+				<image catchtap='playStar' id='{{index+1}}' class="gray-star" data-in='use_sc2' src='../../img/star_large_red.png'></image>
+			</block>
+			<block wx:for="{{twopart}}" wx:key="index">
+				<image catchtap='playStar' id='{{index+1}}' class="gray-star" data-in='use_sc' src='../../img/star_large_grey.png'></image>
+			</block>
+		</view>
+	</view>
+
+</view>
+<view class="conts">
+	<textarea class="areas" auto-focus="{{autoFocus}}" placeholder='请输入评论内容' maxlength="150" bindinput="inputs" show-confirm-bar="{{showConfirm}}">
+    </textarea>
+	<view class="after-content-right">
+			<text class="currentWordNumber">{{currentWordNumber}}/{{max}}</text>
+	</view>
+	<view class="after-content">
+		<view class="after-content-left">
+			<view class="after-content-left-img">
+				<image class="xiangji" wx:for="{{imgUrl}}" bindtap="previewimgs" wx:for-item="item" wx:key="key" src="{{item}}"></image>
+				<image class="xiangji" src="../../img/photo1.png" bindtap="uploadFile"></image>
+			</view>
+			<view class="after-content-left-text">
+				<view style="font-size: 25rpx;padding-left:10rpx;">添加图片</view>
+				<view style="font-size: 25rpx;">(最多三张)</view>
+			</view>
+		</view>
+		
+	</view>
+	<view class="button-wrap">
+		<button bindtap="submit" class="w-button">提交</button>
+	</view>
+</view>

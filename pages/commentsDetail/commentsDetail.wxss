@@ -1,0 +1,263 @@
+.detail-box {
+    background-color: white;
+    margin: 10rpx 15rpx;
+    display: flex;
+    padding-top: 10rpx;
+    padding-left: 10rpx;
+    font-size: 30rpx;
+}
+
+.top-left {
+    padding: 10rpx;
+}
+
+.prices {
+    color: #ff541f;
+}
+
+.top-left image {
+    width: 125rpx;
+    height: 125rpx;
+}
+
+.top-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0rpx 10rpx 10rpx 10rpx;
+}
+
+.detail-comment {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0rpx 15rpx;
+    padding: 15rpx 10rpx;
+    font-size: 30rpx;
+    border-bottom: 1px solid #dddddd;
+}
+
+.starts {
+    width: 35rpx;
+    height: 35rpx;
+    margin-right: 8rpx;
+}
+
+.allStar {
+    display: flex;
+    align-items: center;
+}
+.first-part{
+  display: flex;
+  align-items: center;
+  padding-top: 10rpx;
+  padding-left: 10rpx;
+}
+.first-part image{
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: 10rpx;
+}
+.mine-comment{
+    background-color: white;
+    margin: 0rpx 15rpx 0rpx 15rpx;
+}
+.third-part{
+    padding-left: 78rpx;
+    margin-top: 10rpx;
+}
+.second-part{
+    padding-left: 78rpx;
+    font-size: 30rpx;
+    margin-top: 10rpx;
+}
+.co-time{
+    margin-right: 15rpx;
+}
+.bottom-parts{
+    background-color: white;
+    margin:10rpx 15rpx;
+}
+.empty-box{
+    text-align: center;
+    padding: 60rpx 0px;
+    font-size: 30rpx;
+}
+.show-comment{
+    padding-left: 10rpx;
+    font-size: 30rpx;
+    padding-top: 15rpx;
+    padding-bottom: 15rpx;
+}
+.comment-input{
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    background-color: white;
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    z-index: 10;
+    background-color: #f0f0f8;
+}
+.outter-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputs{
+    width: 100%;
+    border-radius: 55rpx;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    height: 65rpx;
+    line-height: 65rpx;
+    font-size: 30rpx;
+    padding-left: 20rpx;
+    color: lightgray;
+    background-color: white;
+}
+.third-part{
+    font-size: 30rpx;
+}
+.dialogShare{
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.dialog-input{
+    position: fixed;
+    left: 0px;
+    /* top: 0px; */
+    bottom: 0px;
+    /* right: 0px; */
+    margin: auto;
+    height: 365rpx;
+    background-color: #f0f0f8;
+    display: flex;
+    flex-direction: column;
+    padding: 10rpx;
+    width: 100%;
+    box-sizing: border-box;
+}
+.comment-text{
+    font-size: 30rpx;
+    width: 100%;
+    border: 1px solid #dddddd;
+    padding-left: 10rpx;
+    box-sizing: border-box;
+    padding-top: 10rpx;
+    background-color: white;
+    border-radius: 15rpx;
+}
+.sendBtn{
+   color: #c1c1c1;
+   background-color: #cccccc;
+}
+.btn-box{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10rpx;
+    box-sizing: border-box;
+    margin-bottom: 20rpx;
+}
+.activeClass{
+    background: linear-gradient(225deg,#25cfa2,#27d98c);
+    color: white;
+}
+.mostComment{
+   border-top: 1px solid #dddddd;
+   margin-bottom: 110rpx;
+}
+.comment-head{
+    display: flex;
+    align-items: center;
+}
+.delete-box image{
+   width: 35rpx;
+   height: 35rpx;
+   padding-top: 7rpx;
+}
+.topBox{
+    justify-content: space-between;
+}
+.commentPic{
+    display: flex;
+    align-items: center;
+    padding-right: 10rpx;
+    position: relative;
+}
+.commentPic image{
+    width: 35rpx;
+    height: 35rpx;
+    padding-top: 8rpx;
+    margin-left: 8rpx;
+}
+.specialSpeak{
+    position: absolute;
+    width: 30rpx;
+    height: 26rpx;
+    border: 1px solid red;
+    left: 27rpx;
+    top: 13rpx;
+    opacity: 0;
+}
+
+.thirdSpecial{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.specialMine{
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 15rpx;
+}
+.ts{
+    position: fixed;
+    bottom: 0px;
+    height: 120rpx;
+    background-color: white;
+    z-index: 3000;
+    width: 100%;
+    line-height: 120rpx;
+    display: flex;
+    align-items: center;
+}
+.ts textarea{
+    height: 80rpx;
+}
+.grayClass{
+    color: #999999;
+  }
+  .first-part{
+  margin-top: 0rpx;
+}
+.common-style{
+    box-sizing: border-box;
+    padding-left: 25rpx;
+    padding-right: 25rpx;
+    border-radius: 25rpx;
+    padding-bottom: 5rpx;
+    padding-top: 5rpx;
+    font-size: 30rpx;
+}
+.noactive{
+    color: #c1c1c1;
+}
+.comimg-box{
+  display: flex;
+  padding-left: 78rpx;
+  margin-top: 10rpx;
+}
+.comimg-box image{
+    width: 110rpx;
+    height: 110rpx;
+    margin-right: 10rpx;
+}

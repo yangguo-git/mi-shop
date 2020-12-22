@@ -1,0 +1,35 @@
+page {
+	background: #eee;
+}
+.share {
+	width: 300px;
+	height: 636rpx;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0rpx;
+	margin: auto;
+}
+
+.btn-box {
+	display: flex;
+	padding: 20rpx 10rpx 10rpx 10rpx;
+}
+
+.btn-box button {
+	background: #07c160;
+	color: white;
+	/* width: 305rpx !important; */
+	width: 265rpx !important;
+	border-radius: 14rpx !important;
+	font-size: 34rpx !important;
+}
+.saveTips{
+ text-align: center;
+ margin-top: 20rpx;
+ color: #999999;
+ margin-bottom: 20rpx;
+ /* display: flex; */
+ /* flex-direction: column; */
+}

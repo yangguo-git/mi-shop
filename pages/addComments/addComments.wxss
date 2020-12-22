@@ -1,0 +1,113 @@
+.conts {
+  height: 500rpx;
+  border: 1rpx soldi red;
+  margin: 0 auto;
+  margin-top: 15rpx;
+  background-color: #fff;
+  padding-top: 30rpx;
+  position: relative;
+  padding-bottom: 60rpx;
+}
+
+.areas {
+  font-size: 30rpx;
+  padding-top: 5rpx;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 92%;
+  border-radius: 15rpx;
+}
+.after-content {
+  display: flex;
+  justify-content: space-between;
+  width: 86%;
+  position: absolute;
+  bottom: 28rpx;
+  left: 4%;
+  z-index: 1024;
+}
+
+.after-content-left-img image {
+  width: 90rpx;
+  height: 70rpx;
+}
+
+.after-content-left-img {
+  border: 1px dashed #cccccc;
+  padding: 20rpx;
+  margin-right: 20rpx;
+}
+
+.after-content-left {
+  display: flex;
+  align-items: center;
+}
+
+.after-content-left-text {
+  color: #b9b9b9;
+}
+
+.after-content-right {
+  position: absolute;
+  font-size: 28rpx;
+  color: #b9b9b9;
+  position: absolute;
+  right: 20rpx;
+}
+
+.button-wrap {
+  height: 120rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.w-button {
+  background: #f4f4f4;
+  color: #fff;
+  border-radius: 2px;
+  z-index: 4;
+  padding: 0;
+  background: linear-gradient(225deg, #25cfa1, #27d98c);
+  border-radius: 50rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  font-weight: 100;
+  width: 68% !important;
+}
+/* 打分 */
+.point-wrap{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 15rpx;
+}
+.product-point{
+   width: 125rpx;
+   height: 125rpx;
+   padding: 15rpx;
+}
+.gray-star{
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 15rpx;
+}
+.point-wrap text{
+    font-size: 30rpx;
+}
+.pointText{
+   margin: 0px 15rpx;
+}
+.right-part{
+  display: flex;
+  flex-direction: column;
+  height: 120rpx;
+  justify-content: space-between;
+}

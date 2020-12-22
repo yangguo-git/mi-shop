@@ -1,0 +1,254 @@
+page{
+  /* height: 100%; */
+  background-color: #f0f0f8;
+}
+input,textarea{
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+.formitem{
+  border-bottom: none;
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+}
+.form-content,.section{
+  background-color: #fff;
+  padding: 20rpx 35rpx;
+}
+.section{
+  margin-top: 20rpx;
+}
+.formitem-textarea{
+  display: flex;
+  align-items: center;
+  padding-left: 16rpx;
+  max-height: 80rpx;
+  padding-top: 35rpx;
+}
+.formitem-img{
+  width: 25rpx;
+  height: 36rpx;
+  position: absolute;
+  top: 25rpx;
+  right: 0;
+}
+.button-wrap {
+  height: 145rpx;
+  position: fixed;
+  /* left: 5%; */
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+.w-button {
+  /* width: 79.8%; */
+  color: #fff;
+  border-radius: 2px;
+  z-index: 4;
+  padding:0;
+  background: linear-gradient(225deg,#f7611f,#fd9d31);
+  border-radius: 50rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  font-size: 28rpx;
+  font-weight: 100;
+}
+.wbtns{
+  width: 340rpx !important;
+}
+.allBox{
+  font-size: 15px;
+}
+.detailBox{
+  /* width: 35px; */
+  font-size: 30rpx;
+}
+.picker{
+  font-size: 30rpx;
+}
+.formitem-hd{
+  font-size: 30rpx;
+}
+.section__title{
+  font-size: 30rpx;
+}
+.longTitle{
+  /* width: 35px; */
+}
+.section .picker{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 33rpx;
+}
+.detailAdress{
+  padding-top: 10rpx;
+}
+/* 获取通讯地址 */
+.getAdress_contain{
+  text-align: center;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  padding: 10rpx 0rpx 10rpx 35rpx;
+  justify-content: space-between;
+}
+.tips{
+  font-size: 30rpx;
+}
+.getAdress_contain button{
+  color: white;
+  font-size: 30rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  width: 230rpx !important;
+  border-radius: 50rpx;
+  background: linear-gradient(225deg,#f7611f,#fd9d31);
+  padding: 0px;
+  font-weight: normal;
+}
+.choseBtn{
+  margin-right: 28rpx;
+}
+.pickerNo{
+  color: #cccccc;
+}
+.pickerItemselect{
+  color: black;
+  padding-left: 30rpx !important;
+}
+/* 优化开始地址*/
+.topPeople{
+  display: flex;
+  align-items: center;
+  padding-left: 35rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  justify-content: space-between;
+}
+.topPeople text{
+  width: 120rpx;
+}
+.getAdressbtn{
+  font-size: 30rpx;
+  font-style: normal;
+  font-weight: normal;
+  color: #08c160;
+  background-color: #ffffff;
+  width: 338rpx !important;
+  /* padding-top: 10rpx; */
+  padding-bottom: 10rpx;
+}
+/* 授权电话 */
+.phoneWrap{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-end; */
+}
+.getPhoneClass{
+  font-style: normal;
+  font-weight: normal;
+  background-color: white;
+  font-size: 30rpx;
+  text-align: center;
+  border: 1rpx solid #08c160;
+  padding: 8rpx;
+  width: 220rpx !important;
+  margin-left: 55rpx !important;
+  color: #08c160;
+}
+.adresBox{
+  padding-left: 35rpx;
+  padding-top: 26rpx;
+  padding-bottom: 6rpx;
+  box-sizing: border-box;
+}
+.commonClass{
+  margin-left: 40rpx;
+}
+/* 编辑收货地址开始 */
+.editTopPeople{
+  display: flex;
+  align-items: center;
+  padding-left: 35rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  justify-content: space-between;
+}
+.editTopPeople text{
+  width: 120rpx;
+}
+.adres-btn{
+  margin-right: 28rpx;
+}
+.editAdressbtn{
+  font-size: 30rpx;
+  font-style: normal;
+  font-weight: normal;
+  color: #08c160;
+  background-color: #ffffff; 
+  width: 338rpx !important;
+  /* padding-top: 10rpx; */
+  padding-bottom: 10rpx;
+}
+/* 获取电话 */
+.editWrap{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.editPhoneClass{
+  font-style: normal;
+  font-weight: normal;
+  background-color: white;
+  font-size: 30rpx;
+  text-align: center;
+  border: 1rpx solid #08c160;
+  padding: 8rpx;
+  width: 220rpx !important;
+  margin-left: 55rpx !important;
+  color: #08c160;
+}
+.adresBoxedit{
+  padding-left: 35rpx;
+  padding-top: 26rpx;
+  padding-bottom: 6rpx;
+}
+.inputEdit{
+  margin-left: 40rpx;
+}
+.middle-parts{
+  margin-top: 10rpx;
+}
+/* 编辑收货地址结束 */
+.saves-btn{
+  background: linear-gradient(225deg,#25cfa1,#27d98c);
+}
+.newBtns{
+  background: linear-gradient(225deg,#25cfa1,#27d98c);
+}
+.inputSec{
+  margin-left: 90rpx;
+}
+.detail-wrap{
+  margin-left: 30rpx;
+  width: 71%;
+}
+.save-wrap{
+  margin-left: 30rpx;
+  width: 71%;
+}
+.saveCommon{
+  margin-left: 90rpx;
+}
+
+
+
+
+

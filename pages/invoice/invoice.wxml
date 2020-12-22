@@ -1,0 +1,83 @@
+<view class="invoice-top">
+	<radio-group bindchange="radioChange">
+        <view class="groupBox groupBoxFir">
+            <radio value="0" checked="true" class="invoice-com" /><text>不需要发票</text>
+        </view>
+        <view class="groupBox groupBoxSec">
+            <radio value="1" class="invoice-com" /><text>开具发票</text>
+        </view>
+	</radio-group>
+</view>
+<view wx:if="{{isNeed}}">
+ 
+<view class="invoice-middle">
+	<view class="midle-first">
+		<text>发票类型</text>
+		<text class="tips">电子普通发票</text>
+	</view>
+	<view style="color:#999999;">
+		电子普通发票与普通纸质发票具有同等法律效力，可支持报销入账。
+	</view>
+</view>
+<view class="invoice-head">
+	<view class="head-first">
+		<text>发票抬头</text>
+		<view class="invoiceWechat">
+			<text bindtap="getWechat">获取微信发票抬头</text>
+		</view>
+	</view>
+	<view class="head-second">
+		<text bindtap="changeEvent" class="{{isActive == '0'?'activeClass':''}}" data-status='0'>个人</text>
+		<text bindtap="changeEvent" class="{{isActive == '1'?'activeClass':''}}" data-status='1'>公司</text>
+	</view>
+	<!-- 个人 -->
+	<view wx:if="{{isPeople}}" class="personal-box">
+        <view class="flag-box">
+		   <input type="text" placeholder="可填写姓名" style="font-size: 30rpx;" bindinput='personInput'  value="{{personName}}" />
+        </view>
+	</view>
+	<!-- 公司 -->
+	<view class="company-invoice" wx:if="{{isCompany}}">
+		<view class="flag-box flag-boxcoms">
+			<input type="text" placeholder="请填写公司名称" style="font-size: 30rpx;" bindinput='comInputName'  value="{{companyName}}"/>
+		</view>
+		<view class="flag-box flag-boxcoms">
+			<input type="text" placeholder="请填写纳税人识别号" style="font-size: 30rpx;" bindinput='comInputCode'  value="{{companyCode}}"/>
+		</view>
+		<view class="flag-box flag-boxcoms">
+			<input type="text" placeholder="注册地址(选填)" style="font-size: 30rpx;"  value="{{companyAdress}}" bindinput='comInputAdress'/>
+		</view>
+		<view class="flag-box flag-boxcoms">
+			<input type="text" placeholder="公司电话(选填)" style="font-size: 30rpx;"  value="{{companyPhone}}" bindinput='comInputPhone'/>
+		</view>
+		<view class="flag-box flag-boxcoms">
+			<input type="text" placeholder="开户银行(选填)" style="font-size: 30rpx;"  value="{{companyBank}}" bindinput='comInputBank'/>
+		</view>
+		<view class="flag-box flag-last">
+			<input type="text" placeholder="银行账户(选填)" style="font-size: 30rpx;"  value="{{companyBankaccount}}" bindinput='comInputAccount'/>
+		</view>
+
+	</view>
+</view>
+
+
+<view class="invoice-common">
+	<text style="display:block;padding-bottom:10rpx;">收票人信息</text>
+	<view class="flag-box flag-boxresive">
+		<input type="text" placeholder="可填写手机号码" class="input-text" bindinput='input_name'  value="{{receivePhone}}" />
+	</view>
+	<view class="flag-box flag-boxresive flag-last">
+		<input type="text" placeholder="可接收电子发票邮箱" class="input-text" bindinput='input_mail'  value="{{receiveMail}}" />
+	</view>
+</view>
+
+<view class="invoice-five">
+	<text>发票内容</text>
+	<text class="tips">商品明细</text>
+</view>
+
+<view class="btn-wrap">
+	<button bindtap="sureMark" class="sure-btn">确定</button>
+</view>
+   
+</view>

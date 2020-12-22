@@ -1,0 +1,41 @@
+/* 物流相关开始 */
+.orderBox{
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+}
+.orderDetail{
+  background-color: white;
+  margin-top: 15rpx;
+  padding-top: 15rpx;
+}
+.orderBox:first-child{
+  padding-top: 13rpx;
+}
+.orderBox>view{
+  padding: 0px 0px 10rpx 15rpx;
+}
+/* bzt */
+.everyStep{
+  display: flex;
+  padding-left: 15rpx;
+  height: 160rpx;
+}
+.leftProgress{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.shuLine{
+  flex: 1;
+  background-color: #c4c3c3;
+  border: 0.2rpx solid #c4c3c3;
+}
+.rightLogist{
+  margin-top: -7rpx;
+}
+.littleWord{
+  font-size: 26rpx;
+}
+/* 物流相关结束 */

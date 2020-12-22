@@ -1,0 +1,26 @@
+@import '../common.wxss';
+.totalPrice{
+    text-align: right;
+    color: red;
+    font-size: 26rpx;
+    padding-right: 28rpx;
+    padding-top: 10rpx;
+}
+.afterSale{
+    color: black;
+}
+.chooseGoods{
+    width: 35rpx;
+    height: 35rpx;
+    margin-right: 20rpx;
+    margin-left: -10rpx;
+}
+.item {
+    margin-left: 0;
+}
+.afterText{
+    position: absolute;
+    right: 35rpx;
+    font-size: 28rpx;
+
+}

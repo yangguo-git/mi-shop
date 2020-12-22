@@ -1,0 +1,10 @@
+<view class="posi-wrap">
+    <textarea class="markareas" auto-focus="{{autoFocus}}" placeholder='请输入备注信息' maxlength="150" bindinput="inputs" show-confirm-bar="{{showConfirm}}">
+    </textarea>
+    <view class="limit-word">
+        {{currentWordNumber}}/150
+    </view>
+</view>
+<view class="btn-wrap">
+    <button bindtap="sureMark" class="sure-btn">确定</button>
+</view>

@@ -1,0 +1,8 @@
+@import '../common.wxss';
+.totalPrice{
+    text-align: right;
+    color: red;
+    font-size: 26rpx;
+    padding-right: 28rpx;
+    padding-top: 10rpx;
+}

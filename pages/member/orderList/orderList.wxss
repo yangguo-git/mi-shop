@@ -1,0 +1,109 @@
+@import '../common.wxss';
+.chooseCate{
+    font-size: 26rpx;
+}
+.totalPrice{
+    text-align: right;
+    color: red;
+    font-size: 26rpx;
+    padding-right: 28rpx;
+    padding-top: 10rpx;
+}
+.afterSale{
+    color: black;
+}
+.chooseGoods{
+    width: 35rpx;
+    height: 35rpx;
+    margin-right: 20rpx;
+    margin-left: -10rpx;
+}
+.item {
+    margin-left: 0;
+}
+.afterText{
+    position: absolute;
+    right: 35rpx;
+    font-size: 28rpx;
+
+}
+.item2{
+    background: #fff;
+    border:1px solid #dadada;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    margin-top: 15rpx;
+  }
+  .productName{
+      margin-left: 30rpx;
+  }
+  .item2 .item_top{
+    width: 100%;
+    height: 96rpx;
+    line-height: 96rpx;
+    display: flex;
+    justify-content: space-between;
+    font-size: 30rpx;
+    border-bottom: 1px solid #dadada;
+  }
+  .item_con{
+    font-size: 30rpx;
+    padding: 0 30rpx;
+  
+  }
+  .item_con{
+      width: 100%;
+      padding: 0 30rpx;
+  }
+  .item_con .item_order,.item_con .item_time,.item_con .item_money{
+    display: flex;
+    height: 96rpx;
+    line-height: 96rpx;
+  }
+  .item_con{
+    position: relative;
+  }
+  .item_con .again_purchase{
+    position: absolute;
+    right: 30px;
+    bottom: 20rpx;
+    width: 168rpx;
+    height: 58rpx;
+    line-height: 58rpx;
+    color: #51aa38;
+    border: 1px solid #51aa38;
+    background: transparent;
+    font-size: 28rpx;
+  }
+  .item_con .again_purchase_cancel{
+    right: 100px;
+    border: 1px solid #999;
+    color: #999;
+  }
+  .item_left{
+    width: 120rpx;
+    margin-left: 30rpx;
+  }
+  
+  .no_product{
+    width: 35%;
+    text-align: center;
+    font-size: 30rpx;
+    color: #999;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .no_product image{
+    width: 100%;
+  }
+  .no_more_card{
+    text-align: center;
+    font-size: 28rpx;
+    padding-bottom: 30rpx;
+    color: #333;
+  }

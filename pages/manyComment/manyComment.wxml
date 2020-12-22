@@ -1,0 +1,18 @@
+<view class="many-box">
+	<view wx:for="{{goodsVOList}}" wx:key="index" class="item-box">
+		<view class="many-left">
+			<image src="{{item.thumbnailImgUrl}}"></image>
+		</view>
+		<view class="many-right">
+			<view class="rightTop">
+				<text>{{item.productName}}</text>
+			</view>
+			<view class="rightBottom">
+				<text bindtap="goStar" wx:if="{{item.isComment == 0}}" data-url="{{item.thumbnailImgUrl}}" data-productId = "{{item.productId}}"  data-productNormId = "{{item.productNormId}}" >评价</text>
+				<text bindtap="lookStar" wx:else  data-url="{{item.thumbnailImgUrl}}"  data-productId = "{{item.productId}}"  data-productNormId = "{{item.productNormId}}">查看评价</text>
+			</view>
+		</view>
+
+	</view>
+
+</view>

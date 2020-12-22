@@ -1,0 +1,9 @@
+<view class="tuikuanWrap">
+    <text>1.进入"心意有礼周边"小程序，点击"我的";</text>
+    <text>2.点击"全部订单",查找到需要退款的订单记录;</text>
+    <text>3.点击"申请售后",填写完提交申请之后点击"提交",待客服人员确认;</text>
+    <text>4.款将在1-3个工作日内到账。</text>
+</view>
+<view class="wramTips">
+    温馨提示：退款流程仅当订单签收后方可进行。
+</view>
